@@ -14,6 +14,7 @@ body{
     padding: 0;
     margin: 0;
     height: 100%;
+    
     overflow: hidden;
     background:url('/sport_development/api/images/fondo.png');
     background-repeat: no-repeat;
