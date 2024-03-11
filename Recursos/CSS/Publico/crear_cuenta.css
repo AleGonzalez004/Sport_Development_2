@@ -1,0 +1,18 @@
+p{
+    text-align: center;
+    font-size:  30px;
+    font-family: "Inter", cursive;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.navbar{
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+body{
+    background-color: blue;
+}
