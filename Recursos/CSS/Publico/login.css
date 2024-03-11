@@ -1,30 +1,44 @@
-body {font-family: Arial, Helvetica, sans-serif;}
-
-.navbar {
-  width: 100%;
-  background-color: #555;
-  overflow: auto;
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+  	background:url(/Recursos/Imagenes/logo.png) ;
 }
 
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
+#menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: #333;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
-.navbar a:hover {
-  background-color: #000;
+#menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
 }
 
-.active {
-  background-color: #04AA6D;
+#menu li {
+	margin-right: 20px;
 }
 
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
+#menu a {
+	color: #fff;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+#menu i {
+	margin-left: 5px;
+	font-size: 0.8em;
+}
+
+#menu span {
+	margin-right: 5px;
 }

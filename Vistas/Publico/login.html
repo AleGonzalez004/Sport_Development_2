@@ -8,40 +8,39 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/Recursos/CSS/Administradores/A_Style_Login.css">
-    <link rel="stylesheet" href="/Recursos/CSS/Publico/P_Style_Login.css">
+    <link rel="stylesheet" href="/Recursos/CSS/Administradores/login.css">
+    <link rel="stylesheet" href="/Recursos/CSS/Publico/login.css">
 </head>
 
 <body>
+    <header>
     <!-- Header Inicio -->
-    <div class="container">
-        <div class="navbar">
-            <a class="active" href="/Vistas/Publico/index.html"><i class="fa fa-fw fa-home"></i> Inicio</a>
-            <a href="/Vistas/Publico/crear_cuenta.html"><i class="fa fa-fw fa-search"></i> Registrarme</a>
-            <a href="/Vistas/Publico/catalogo.html"><i class="fa fa-fw fa-envelope"></i> Catalogo</a>
-        </div>
-        <!-- Header Fin -->
-    </div>
+    <div id="menu">
+        <ul>
+            <li><a href="/Vistas/Publico/index.html"><span>Inicio</span> <i class="fas fa-home fa-xs"></i></a></li>
+            <li><a href="/Vistas/Publico/crear_cuenta.html"><span>Registrarme</span> <i class="fas fa-user fa-xs"></i></a></li>
+            <li><a href="/Vistas/Publico/catalogo.html"><span>Catalogo</span> <i class="fas fa-briefcase fa-xs"></i></a></li>
+        </ul>
+    </div> 
     <!-- Cotenedor del login -->
+    </header>
     <main>
         <div class="col-12 col-sm-7 col-md-6 m-auto">
             <div class="card text-center mt-5 mx-auto">
-                <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                    <div class="mb-3 mt-5">
-                        <label for="correo" class="form-label"> </label>
-                        <input placeholder="Correo:" type="email" id="correo" name="correo" class="form-control"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="clave" class="form-label"></label>
-                        <input placeholder="Contraseña:" type="password" id="clave" name="clave" class="form-control"
-                            required>
-                    </div>
-                    <div class="text-center">
-                    </div>
-                    <a href="/Vistas/Publico/P_Index.html" type="submit" class="btn btn-primary mt-5"> </i> Ingresar</a>
+                <div class="mb-3 mt-5">
+                    <label for="correo" class="form-label"> </label>
+                    <input placeholder="Correo:" type="email" id="correo" name="correo" class="form-control" required>
                 </div>
+                <div class="mb-3">
+                    <label for="clave" class="form-label"></label>
+                    <input placeholder="Contraseña:" type="password" id="clave" name="clave" class="form-control"
+                        required>
+                </div>
+                <div class="text-center">
+                </div>
+                <a href="/Vistas/Publico/index.html" type="submit" class="btn btn-primary mt-5"> </i> Ingresar</a>
             </div>
+        </div>
         </div>
 
     </main>
@@ -63,7 +62,7 @@
                 </div>
             </div>
         </nav>
-        <!-- Footer Fin -->  
+        <!-- Footer Fin -->
     </footer>
     <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
     <script href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
