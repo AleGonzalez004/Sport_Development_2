@@ -7,7 +7,8 @@
   <title>Catalogo</title>
   <link rel="stylesheet" href="/Recursos/CSS/Publico/catalogo.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 
@@ -15,7 +16,7 @@
 <body>
   <header class="custom-header text-white" style="background-color: #245C9D;">
     <div class="container" style="background-color: #245C9D;">
-      <h1>SPORT DEVELOPMENT <img src="/Recursos/Imagenes/logo_blanco.png" style="height: 7%; width: 7%;" ></h1>
+      <h1>SPORT DEVELOPMENT <img src="/Recursos/Imagenes/logo_blanco.png" style="height: 7%; width: 7%;"></h1>
       <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: #245C9D;">
         <!-- Botón para dispositivos móviles -->
         <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -52,7 +53,7 @@
               <div class="col-auto">
                 <button class="btn btn-dark" type="submit">Buscar</button>
                 <i class="bi bi-heart fs-5 px-2"></i>
-                <i class="bi bi-person-add fs-5 px-2"></i>        
+                <i class="bi bi-person-add fs-5 px-2"></i>
                 <i class="bi bi-cart fs-5 px-2"></i>
               </div>
             </div>
@@ -62,167 +63,165 @@
     </div>
   </header>
 
-
-
-
-  <div class="container p-2">
-    <div class="col-md" id="filtros">
-      <form>
-        <div class="form-group">
-          <label for="filtro1">
-            <input type="checkbox" id="filtro1"> Hombre
-          </label>
-
-
-          <label for="filtro2">
-            <input type="checkbox" id="filtro2"> Mujer
-          </label>
-
-
-          <label for="filtro1">
-            <input type="checkbox" id="filtro1"> Zapatos
-          </label>
-
-
-          <label for="filtro2">
-            <input type="checkbox" id="filtro2"> Camisas
-          </label>
-
-
-          <label for="filtro1">
-            <input type="checkbox" id="filtro1"> Futbol
-          </label>
-
-
-          <label for="filtro2">
-            <input type="checkbox" id="filtro2"> Basquet
-          </label>
-
-
-          <label for="filtro1">
-            <input type="checkbox" id="filtro1"> Voley
-          </label>
-
-
-          <label for="filtro2">
-            <input type="checkbox" id="filtro2"> Tennis
-          </label>
-
-          <label for="filtro1">
-            <input type="checkbox" id="filtro1"> Voley
-          </label>
-
-
-          <label for="filtro2">
-            <input type="checkbox" id="filtro2"> Tennis
-          </label>
-          <button type="submit" class="btn btn-dark">Aplicar Filtros</button>
-        </div>
-      </form>
-    </div>
-  </div>
   <div class="container">
-    <div class="card-group">
-      <div class="card">
-        <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
-          <p class="card-text">perfil bajo para terreno firme</p>
+    <h5 class="text-center mb-2">Filtros</h5>
+    <form id="filterForm">
+      <div class="row">
+        <div class="col-md-2">
+          <label for="category" class="form-label">Deportes:</label>
+          <select id="category" class="form-select">
+            <option value="">Futbol</option>
+            <option value="category1">Baloncesto</option>
+            <option value="category2">Tenis</option>
+            <option value="category3">Voley</option>
+          </select>
         </div>
-        <div class="card-footer">
-          <small class="text-body-secondary">259,99 $</small>
+        <div class="col-md-2">
+          <label for="category" class="form-label">Descuentos:</label>
+          <select id="category" class="form-select">
+            <option value="">10% de descuento</option>
+            <option value="category1">20% de descuento</option>
+            <option value="category2">30% de descuento</option>
+            <option value="category3">40% de descuento</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="category" class="form-label">Genero:</label>
+          <select id="category" class="form-select">
+            <option value="">Hombre</option>
+            <option value="category1">Mujeres</option>
+            <option value="category2">Unisex</option>
+            <option value="category3">Niños</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="category" class="form-label">Categoría:</label>
+          <select id="category" class="form-select">
+            <option value="">Todos</option>
+            <option value="category1">Deporte</option>
+            <option value="category2">Descuentos</option>
+            <option value="category3">Generos</option>
+            <option value="category3">Marcas</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="category" class="form-label">Marca:</label>
+          <select id="category" class="form-select">
+            <option value="">Nike</option>
+            <option value="category1">Adidas</option>
+            <option value="category2">Puma</option>
+            <option value="category3">Umbro</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="price" class="form-label">Precio:</label>
+          <input type="number" id="price" class="form-control" step="0.01">
         </div>
       </div>
-      <div class="card">
-        <img src="/Recursos/Imagenes/zapato2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
-          <p class="card-text">perfil bajo para terreno firme</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-body-secondary">120,99 $</small>
-        </div>
+      <button type="submit" class="btn btn-dark mt-3">Aplicar Filtros</button>
+    </form>
+  </div>
+  <div class="card-group container">
+    <div class="card">
+      <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
+        <p class="card-text">perfil bajo para terreno firme</p>
       </div>
-      <div class="card">
-        <img src="/Recursos/Imagenes/zapato3.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
-          <p class="card-text">perfil bajo para terreno firme</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-body-secondary">99 $</small>
-        </div>
-      </div>
-      <div class="card">
-        <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
-          <p class="card-text">perfil bajo para terreno firme</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-body-secondary">259,99 $</small>
-        </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">259,99 $</small>
       </div>
     </div>
-
-    <div class="card-group" id="tnn">
-      <div class="card">
-        <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
-          <p class="card-text">perfil bajo para terreno firme</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-body-secondary">259,99 $</small>
-        </div>
+    <div class="card">
+      <img src="/Recursos/Imagenes/zapato2.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
+        <p class="card-text">perfil bajo para terreno firme</p>
       </div>
-      <div class="card">
-        <img src="/Recursos/Imagenes/zapato2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
-          <p class="card-text">perfil bajo para terreno firme</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-body-secondary">120,99 $</small>
-        </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">120,99 $</small>
       </div>
-      <div class="card">
-        <img src="/Recursos/Imagenes/zapato3.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
-          <p class="card-text">perfil bajo para terreno firme</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-body-secondary">99 $</small>
-        </div>
+    </div>
+    <div class="card">
+      <img src="/Recursos/Imagenes/zapato3.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
+        <p class="card-text">perfil bajo para terreno firme</p>
       </div>
-      <div class="card">
-        <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
-          <p class="card-text">perfil bajo para terreno firme</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-body-secondary">259,99 $</small>
-        </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">99 $</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
+        <p class="card-text">perfil bajo para terreno firme</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">259,99 $</small>
       </div>
     </div>
   </div>
 
-
-<footer>
-    <h2 class="text-start">Sport Development</h2>
-    <p class="text-center" style="font-size: 15px;">A través del deporte, tenemos el poder de cambiar vidas. El <br> deporte nos mantiene en forma. Nos mantienen atentos. Nos unen.<br> Los atletas nos inspiran. Nos ayudan a levantarnos y movernos. Y <br> los artículos deportivos con las últimas tecnologías nos ayudan a <br> batir nuestra mejor marca personal.</p>
-    <div class="social-icons text-end">
-        <p class="px-4">Siguenos!</p>
-        <i class="bi bi-instagram fs-3 px-2"></i>
-        <i class="bi bi-facebook fs-3 px-2"></i>        
-        <i class="bi bi-tiktok fs-3 px-2"></i>
-        <i class="bi bi-youtube fs-3 px-2"></i>
-        <p class="mt-2" style="font-size: 10px;">2024 Sport Development, San Salvador, El Salvador</p>
+  <div class="card-group container" id="tnn">
+    <div class="card">
+      <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
+        <p class="card-text">perfil bajo para terreno firme</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">259,99 $</small>
+      </div>
     </div>
-    
-</footer>
+    <div class="card">
+      <img src="/Recursos/Imagenes/zapato2.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
+        <p class="card-text">perfil bajo para terreno firme</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">120,99 $</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/Recursos/Imagenes/zapato3.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
+        <p class="card-text">perfil bajo para terreno firme</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">99 $</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
+        <p class="card-text">perfil bajo para terreno firme</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">259,99 $</small>
+      </div>
+    </div>
+  </div>
+  </div>
+  <footer class="p-3">
+    <h2 class="text-start">Sport Development</h2>
+    <p class="text-center" style="font-size: 15px;">A través del deporte, tenemos el poder de cambiar vidas. El <br>
+      deporte nos mantiene en forma. Nos mantienen atentos. Nos unen.<br> Los atletas nos inspiran. Nos ayudan a
+      levantarnos y movernos. Y <br> los artículos deportivos con las últimas tecnologías nos ayudan a <br> batir
+      nuestra mejor marca personal.</p>
+    <div class="social-icons text-end">
+      <p class="px-4">Siguenos!</p>
+      <i class="bi bi-instagram fs-3 px-2"></i>
+      <i class="bi bi-facebook fs-3 px-2"></i>
+      <i class="bi bi-tiktok fs-3 px-2"></i>
+      <i class="bi bi-youtube fs-3 px-2"></i>
+      <p class="mt-2" style="font-size: 10px;">2024 Sport Development, San Salvador, El Salvador</p>
+    </div>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
