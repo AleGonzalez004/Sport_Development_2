@@ -1,18 +1,66 @@
-p{
-    text-align: center;
-    font-size:  30px;
-    font-family: "Inter", cursive;
-    font-optical-sizing: auto;
-    font-weight: bolder;
-    font-style: italic;
-}
+#menu {
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between;
+  }
+  
+#menu li {
+    display: flexbox;
+    align-items: end;
+    justify-content: flex-end;
+  }
+  
+#menu a {
+    float: right;
+    text-align: right;
+    margin: auto;
+    display: flex;
+    color: #0085E5;
+    justify-content: flex-end;
+  }
+  
+  .icon-home {
+    padding: 100;
+    height: 1.2em;
+    width: 2em;
+    margin-left: 0.5em;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url('/Recursos/Imagenes/home.png');
+  }
+  
+  .icon-info {
+    background-image: url('/Recursos/Imagenes/futbol.png');
+  }
+  
+  .icon-envelope {
+    background-image: url('/Recursos/Imagenes/futbol.png');
+  }
 
-.navbar{
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-body{
+  .login{
+    width: 100px;
+    height: 250px;
     background-color: blue;
-}
+    font-size: 50px;
+    margin: 20px;
+  }
+
+
+
+  #momazo{
+    background-color: aqua;
+    float: right;
+    text-align: end;
+  }
+
+  #a1{
+    background-color: blue;
+    font-size: 100;
+    font-weight: 100;
+  }
+
+  .container-fluid {
+
+    float: right;
+  }
