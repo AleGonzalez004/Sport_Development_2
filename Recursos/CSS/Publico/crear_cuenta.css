@@ -15,7 +15,7 @@
     text-align: right;
     margin: auto;
     display: flex;
-    color: #0085E5;
+    color: #245C9D;
     justify-content: flex-end;
   }
   
@@ -41,7 +41,7 @@
   .login{
     width: 100px;
     height: 250px;
-    background-color: blue;
+    background-color: #245C9D;
     font-size: 50px;
     margin: 20px;
   }
@@ -49,13 +49,13 @@
 
 
   #momazo{
-    background-color: aqua;
+    background-color: #245C9D;
     float: right;
     text-align: end;
   }
 
   #a1{
-    background-color: blue;
+    background-color: #245C9D;
     font-size: 100;
     font-weight: 100;
   }
