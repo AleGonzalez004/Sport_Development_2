@@ -18,12 +18,13 @@
     color: #245C9D;
     justify-content: flex-end;
   }
+
+  
   
   .icon-home {
     padding: 100;
     height: 1.2em;
     width: 2em;
-    margin-left: 0.5em;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -36,31 +37,4 @@
   
   .icon-envelope {
     background-image: url('/Recursos/Imagenes/futbol.png');
-  }
-
-  .login{
-    width: 100px;
-    height: 250px;
-    background-color: #245C9D;
-    font-size: 50px;
-    margin: 20px;
-  }
-
-
-
-  #momazo{
-    background-color: #245C9D;
-    float: right;
-    text-align: end;
-  }
-
-  #a1{
-    background-color: #245C9D;
-    font-size: 100;
-    font-weight: 100;
-  }
-
-  .container-fluid {
-
-    float: right;
   }
