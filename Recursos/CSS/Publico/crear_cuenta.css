@@ -19,9 +19,9 @@
     justify-content: flex-end;
   }
 
-.background {
+body {
     background-image: url('/Recursos/Imagenes/logo.png');
-    background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+    background-size: 600px; /* Ajusta la imagen al tamaño del contenedor */
     background-position: left bottom; /* Posiciona la imagen en la esquina inferior izquierda */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
