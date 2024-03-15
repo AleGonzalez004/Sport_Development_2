@@ -8,63 +8,116 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/Recursos/CSS/Administradores/login.css">
-    <link rel="stylesheet" href="/Recursos/CSS/Publico/login.css">
+         <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="/Recursos/CSS/Publico/crear_cuenta.css">
+<!-- Icono de la pagina -->
+<link rel="icon" type="image/x-icon" href="/Recursos/Imagenes/icon_ball.png">
+
+<!--Google Fonts (Para ponerle otros fuentes de texto.)-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
+
 <body>
-    <header>
-    <!-- Header Inicio -->
-    <div id="menu">
-        <ul>
-            <li><a href="/Vistas/Publico/index.html"><span>Inicio</span> <i class="fas fa-home fa-xs"></i></a></li>
-            <li><a href="/Vistas/Publico/crear_cuenta.html"><span>Registrarme</span> <i class="fas fa-user fa-xs"></i></a></li>
-            <li><a href="/Vistas/Publico/catalogo.html"><span>Catalogo</span> <i class="fas fa-briefcase fa-xs"></i></a></li>
-        </ul>
-    </div> 
-    <!-- Cotenedor del login -->
-    </header>
-    <main>
-        <div class="col-12 col-sm-7 col-md-6 m-auto">
-            <div class="card text-center mt-5 mx-auto">
-                <div class="mb-3 mt-5">
-                    <label for="correo" class="form-label"> </label>
-                    <input placeholder="Correo:" type="email" id="correo" name="correo" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="clave" class="form-label"></label>
-                    <input placeholder="Contraseña:" type="password" id="clave" name="clave" class="form-control"
-                        required>
-                </div>
-                <div class="text-center">
-                </div>
-                <a href="/Vistas/Publico/index.html" type="submit" class="btn btn-primary mt-5"> </i> Ingresar</a>
+<!-- Barra de navegacion -->
+<nav class="navbar navbar-expand-md bg-body ">
+    <div class="container-fluid d-flex flex-row justify-content-end p1">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <div id="menu">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <form class="d-flex">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end " id="menu">
+                        <li class="nav-item p-2">
+                            <a class="nav-link p-2" href="/Vistas/Publico/index.html"> Inicio .<span
+                                    class="icon bi-box2-fill"></span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link p-2 justify-content-end" href="/Vistas/Publico/login.html"> Iniciar Sesión
+                                .<span class="icon bi-door-open-fill"></span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link p-2 justify-content-end" href="/Vistas/Publico/crear_cuenta.html">
+                                Registrarse .<span class="icon bi-door-open-fill"></span></a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link p-2 justify-content-end" href="/Vistas/Publico/catalogo.html"> Catalogo
+                                .<span class="icon bi-wallet-fill"></span></a>
+                        </li>
+                    </ul>
+                </form>
             </div>
         </div>
+    </div>
+</nav>
+    <main>
+        <div class="container p-4 col-10 col-sm-10 col-md-8 m-auto">
+            <div class="p-4 card text-center mt-5 mx-auto" style="background-color: #245C9D;">
+                <h2 class="text-white">Inicia Sesion</h2>
+                <div class="row">
+                    <div class="">
+                        <label for="correo" class="form-label"> </label>
+                        <input placeholder="Nombre:" type="email" id="correo" name="correo" class="form-control"
+                            required>
+                    </div>
+                    <div class="">
+                        <label for="clave" class="form-label"></label>
+                        <input placeholder="Apellidos:" type="password" id="clave" name="clave" class="form-control"
+                            required>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-auto">
+                            <a href="/Vistas/Publico/index.html" type="submit"
+                                class="btn btn-light mt-4 text-primary">Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </main>
     <!-- Fin del Cotenedor del login -->
 
     <div class="p-4"></div>
 
   <!-- Inicio Footer -->
-  <footer>
-    <h2 class="text-start">Sport Development</h2>
-    <p class="text-center" style="font-size: 15px;">A través del deporte, tenemos el poder de cambiar vidas. El <br>
-      deporte nos mantiene en forma. Nos mantienen atentos. Nos unen.<br> Los atletas nos inspiran. Nos ayudan a
-      levantarnos y movernos. Y <br> los artículos deportivos con las últimas tecnologías nos ayudan a <br> batir
-      nuestra mejor marca personal.</p>
-    <div class="social-icons text-end">
-      <p class="px-4">Siguenos!</p>
-      <i class="bi bi-instagram fs-3 px-2"></i>
-      <i class="bi bi-facebook fs-3 px-2"></i>
-      <i class="bi bi-tiktok fs-3 px-2"></i>
-      <i class="bi bi-youtube fs-3 px-2"></i>
-      <p class="mt-2" style="font-size: 10px;">2024 Sport Development, San Salvador, El Salvador</p>
+  <footer class="container-fluid bg-dark text-white text-center">
+    <div class="row align-items-center">
+        <div class="col-md-4 text-end">
+            <h2 style="margin-right: 20px;">Sport Development</h2>
+        </div>
+        <div class="col-md-4 text-center">
+            <p class="text-justify" style="font-size: 15px;">A través del deporte, tenemos el poder de
+                cambiar
+                vidas. El deporte nos mantiene en forma. Nos mantienen atentos. Nos unen. Los atletas
+                nos inspiran.
+                Nos ayudan a levantarnos y movernos. Y los artículos deportivos con las últimas
+                tecnologías nos
+                ayudan a batir nuestra mejor marca personal.</p>
+        </div>
+        <div class="col-md-4 text-start">
+            <div class="social-icons text-start">
+                <p class="mb-3">¡Síguenos!</p>
+                <i class="bi bi-instagram fs-3 px-2"></i>
+                <i class="bi bi-facebook fs-3 px-2"></i>
+                <i class="bi bi-tiktok fs-3 px-2"></i>
+                <i class="bi bi-youtube fs-3 px-2"></i>
+                <p style="font-size: 10px; margin-left: 20px;">2024 Sport Development, San Salvador, El
+                    Salvador</p>
+            </div>
+        </div>
     </div>
-  </footer>
-  <!-- Final Footer -->
+</footer>
+<!-- Final Footer -->
     <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
     <script href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
