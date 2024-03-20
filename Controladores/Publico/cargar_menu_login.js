@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     const ContenedorMenu = document.getElementById("menulogin_contenedor");
-    const footHTML = Footer();
+    const menuloginHTML = MenuLogin();
 
-    ContenedorMenu.innerHTML = footHTML;
+    ContenedorMenu.innerHTML = menuloginHTML;
 })
