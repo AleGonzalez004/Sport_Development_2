@@ -7,10 +7,8 @@ function Footer() {
         </div>
         <div class="col-md-4 text-center">
             <p class="text-justify" style="font-size: 15px;">A través del deporte, tenemos el poder de
-                cambiar
-                vidas. El deporte nos mantiene en forma. Nos mantienen atentos. Nos unen. Los atletas
-                nos inspiran.
-                Nos ayudan a levantarnos y movernos. Y los artículos deportivos con las últimas
+                cambiar vidas. El deporte nos mantiene en forma. Nos mantienen atentos y nos unen. Los atletas
+                nos inspiran. Nos ayudan a levantarnos y movernos. Y los artículos deportivos con las últimas
                 tecnologías nos
                 ayudan a batir nuestra mejor marca personal.</p>
         </div>
@@ -22,7 +20,7 @@ function Footer() {
                 <a href="https://www.tiktok.com/"><i class="bi bi-tiktok fs-3 px-2"></i></a>
                 <a href="https://www.youtube.com/"><i class="bi bi-youtube fs-3 px-2"></i></i></a>
                 <p style="font-size: 10px; margin-left: 20px;">2024 Sport Development, San Salvador, El
-                    Salvador</p>
+                    Salvador.</p>
             </div>
         </div>
     </div>
