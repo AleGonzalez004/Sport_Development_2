@@ -17,7 +17,7 @@ function MenuLogin() {
                                     class="icon bi-box2-fill"></span></a>
                         </li>
                         <li class="nav-item p-2">
-                            <a class="nav-link p-2 justify-content-end" href="/Vistas/Publico/crear_cuenta.html">
+                            <a class="nav-link p-2 justify-content-end" href="/Vistas/Publico/registrarse.html">
                                 Registrarse <span class="icon bi-door-open-fill"></span></a>
                         </li>
                         <li class="nav-item p-2">
