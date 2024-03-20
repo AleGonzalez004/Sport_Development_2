@@ -1,6 +1,6 @@
 function Footer() {
-    const MenuL = 
-    `<footer class="container-fluid bg-dark text-white text-center">
+    const MenuL =
+        `<footer class="container-fluid bg-dark text-white text-center">
     <div class="row align-items-center">
         <div class="col-md-4 text-end">
             <h2 style="margin-right: 20px;">Sport Development</h2>

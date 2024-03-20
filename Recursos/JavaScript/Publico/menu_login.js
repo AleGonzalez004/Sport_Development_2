@@ -1,6 +1,6 @@
 function MenuLogin() {
-    const MenuL = 
-    `<nav class="navbar navbar-expand-md bg-body ">
+    const MenuL =
+        `<nav class="navbar navbar-expand-md bg-body ">
     <div class="container-fluid d-flex justify-content-end">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
