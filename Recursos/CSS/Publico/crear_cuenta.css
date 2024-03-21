@@ -2,14 +2,14 @@
     display: flex;
     justify-content: flex-end;
     justify-content: space-between;
-}
-
+  }
+  
 #menu li {
     display: flexbox;
     align-items: end;
     justify-content: flex-end;
-}
-
+  }
+  
 #menu a {
     float: right;
     text-align: right;
@@ -17,14 +17,11 @@
     display: flex;
     color: #245C9D;
     justify-content: flex-end;
-}
+  }
 
 body {
     background-image: url('/Recursos/Imagenes/logo.png');
-    background-size: 600px;
-    /* Ajusta la imagen al tamaño del contenedor */
-    background-position: left bottom;
-    /* Posiciona la imagen en la esquina inferior izquierda */
-    background-repeat: no-repeat;
-    /* Evita que la imagen se repita */
+    background-size: 600px; /* Ajusta la imagen al tamaño del contenedor */
+    background-position: left bottom; /* Posiciona la imagen en la esquina inferior izquierda */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
