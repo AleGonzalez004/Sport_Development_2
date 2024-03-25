@@ -1,8 +1,10 @@
+// Menu para la pagina werb.
+
 function MenuIndex() {
     const Menu =
         `<header class="custom-header text-white" style="background-color: #245C9D;">
-        <div class="container" style="background-color: #245C9D;">
-            <h1>SPORT DEVELOPMENT <img src="/Recursos/Imagenes/logo_blanco.png" style="height: 5%; width: 5%;"></h1>
+        <div class="container-fluid" style="background-color: #245C9D;">
+            <a style="text-decoration: none;" class="text-white" id="titulo"href="/Vistas/Publico/index.html"><h1>SPORT DEVELOPMENT <img src="/Recursos/Imagenes/logo_blanco.png" style="height: 5%; width: 5%;"></h1></a>
             <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: #245C9D;">
                 <!-- Botón para dispositivos móviles -->
                 <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -40,9 +42,9 @@ function MenuIndex() {
                     </div>
                     <div class="col-auto">
                         <button class="btn btn-dark" type="submit">Buscar</button>
-                        <a href="/Vistas/Publico/lista_deseo.html"><i class="bi bi-heart fs-5 px-2"></i></a>
-                        <a href="/Vistas/Publico/login.html"><i class="bi bi-person-add fs-5 px-2"></i></a>
-                        <a href="/Vistas/Publico/carrito_lleno.html"><i class="bi bi-cart fs-5 px-2"></i></a>
+                        <a href="/Vistas/Publico/lista_deseo.html"><i class="bi bi-heart text-white fs-5 px-2"></i></a>
+                        <a href="/Vistas/Publico/login.html"><i class="bi bi-person-add text-white fs-5 px-2"></i></a>
+                        <a href="/Vistas/Publico/carrito.html"><i class="bi bi-cart text-white fs-5 px-2"></i></a>
 
 
                     </div>

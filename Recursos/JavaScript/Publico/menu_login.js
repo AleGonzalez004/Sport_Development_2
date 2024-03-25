@@ -1,3 +1,5 @@
+// Menu para el apartado del Inicio de Sesión y Recuperacion de contración.
+
 function MenuLogin() {
     const MenuL =
         `<nav class="navbar navbar-expand-md bg-body ">
@@ -13,17 +15,16 @@ function MenuLogin() {
                 <form class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end " id="menu">
                         <li class="nav-item p-2">
-                            <a class="nav-link p-2" href="/Vistas/Publico/index.html"> Inicio <span
-                                    class="icon bi-box2-fill"></span></a>
+                            <a class="nav-link p-2" href="/Vistas/Publico/index.html"> 
+                            Inicio  .<span class="icon bi-box2-fill"></span></a>
                         </li>
                         <li class="nav-item p-2">
                             <a class="nav-link p-2 justify-content-end" href="/Vistas/Publico/registrarse.html">
-                                Registrarse <span class="icon bi-door-open-fill"></span></a>
+                                Registrarse  .<span class="icon bi-door-open-fill"></span></a>
                         </li>
                         <li class="nav-item p-2">
                             <a class="nav-link p-2 justify-content-end" href="/Vistas/Publico/catalogo.html">
-                                Catalogo
-                                <span class="icon bi-wallet-fill"></span></a>
+                                Catalogo  .<span class="icon bi-wallet-fill"></span></a>
                         </li>
                     </ul>
                 </form>

@@ -1,0 +1,36 @@
+/* Estilo para el cursor indicando que es interactivo */
+.card-clickable {
+    cursor: pointer;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: justify;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 5px;
+}
+
+.text-start p {
+    margin: 0 400px;
+}
+
+@media screen and (min-width: 150px) {
+    #carrito{
+        max-width: 250px;
+        justify-content: center;
+        margin-top: 100px;
+    }
+}

@@ -1,0 +1,1 @@
+document.querySelectorAll('.abrirArchivo').forEach(function(boton) { boton.addEventListener('click', function() { var archivo = this.getAttribute('data-archivo');

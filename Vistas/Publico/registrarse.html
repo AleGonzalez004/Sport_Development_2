@@ -32,10 +32,10 @@
     <div id="menuregistrar_contenedor"></div>
 
     <main>
-        <div class="container p-4 col-12 col-sm-10 col-md-5 m-auto">
+        <div class="container p-4 col-12 col-sm-10 col-md-8 m-auto col-xl-6">
             <div class="p-4 card text-center mt-5 mx-auto" style="background-color: #245C9D;">
-                <h3 class="text-white">Registra una cuenta para poder hacer compras</h3>
-                <div class="row">
+                <h1 class="text-white mt-3 mx-auto">Crear cuenta</h1>
+                <div class="row mt-4">
                     <div class="col-md-6">
                         <label for="correo" class="form-label"> </label>
                         <input placeholder="Nombre:" type="text" id="nombre" name="nombre" class="form-control"
@@ -47,7 +47,7 @@
                             required>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-md-6">
                         <label for="correo" class="form-label"> </label>
                         <input placeholder="Dirección:" type="text" id="direccion" name="direccion" class="form-control"
@@ -55,13 +55,13 @@
                     </div>
                     <div class="col-md-6">
                         <label for="clave" class="form-label"></label>
-                        <input placeholder="Dui:" type="password" id="dui" name="dui" class="form-control" required>
+                        <input placeholder="Dui:" type="number" pattern="[0-9]" maxlength="10" id="dui" name="dui" class="form-control" required>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-md-6">
                         <label for="correo" class="form-label"> </label>
-                        <input placeholder="Teléfono:" type="tel" id="telefono" name="telefono" class="form-control"
+                        <input placeholder="Teléfono:" type="number" id="telefono" name="telefono" class="form-control"
                             required>
                     </div>
                     <div class="col-md-6">
@@ -70,7 +70,7 @@
                             required>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row  mt-4">
                     <div class="col-md-6">
                         <label for="correo" class="form-label"> </label>
                         <input placeholder="Contraseña:" type="password" id="clave" name="clave" class="form-control"
@@ -84,7 +84,7 @@
                 </div>
                 <div class="text-center">
                 </div>
-                <div class="container">
+                <div class="container mt-5">
                     <div class="row justify-content-end">
                         <div class="col-auto">
                             <a href="/Vistas/Publico/index.html" type="submit" class="btn btn-light mt-4"
@@ -98,33 +98,7 @@
     <div class="p-4"></div>
 
     <!-- Inicio Footer -->
-    <footer class="container-fluid bg-dark text-white text-center">
-        <div class="row align-items-center">
-            <div class="col-md-4 text-end">
-                <h2 style="margin-right: 20px;">Sport Development</h2>
-            </div>
-            <div class="col-md-4 text-center">
-                <p class="text-justify" style="font-size: 15px;">A través del deporte, tenemos el poder de
-                    cambiar
-                    vidas. El deporte nos mantiene en forma. Nos mantienen atentos. Nos unen. Los atletas
-                    nos inspiran.
-                    Nos ayudan a levantarnos y movernos. Y los artículos deportivos con las últimas
-                    tecnologías nos
-                    ayudan a batir nuestra mejor marca personal.</p>
-            </div>
-            <div class="col-md-4 text-start">
-                <div class="social-icons text-start">
-                    <p class="mb-3">¡Síguenos!</p>
-                    <i class="bi bi-instagram fs-3 px-2"></i>
-                    <i class="bi bi-facebook fs-3 px-2"></i>
-                    <i class="bi bi-tiktok fs-3 px-2"></i>
-                    <i class="bi bi-youtube fs-3 px-2"></i>
-                    <p style="font-size: 10px; margin-left: 20px;">2024 Sport Development, San Salvador, El
-                        Salvador</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer_contenedor"></div>
     <!-- Final Footer -->
 
     <script type="text/javascript" src="/Controladores/Publico/cargar_menu_registrar.js"></script>

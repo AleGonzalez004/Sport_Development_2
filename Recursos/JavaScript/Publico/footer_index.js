@@ -1,6 +1,8 @@
+// Pie de pagina de la pagina principal.
+
 function FooterIndex() {
     const MenuL =
-        `<footer class="container-fluid sticky-bottom bg-dark text-white text-center">
+        `<footer class="container-fluid bg-dark text-white text-center">
     <div class="row align-items-center">
         <div class="col-md-4 text-end">
             <h2 style="margin-right: 20px;">Sport Development</h2>
@@ -14,11 +16,10 @@ function FooterIndex() {
         </div>
         <div class="col-md-4 text-start">
             <div class="social-icons text-start">
-                <p class="mb-3">¡Síguenos!</p>
-                <a href="https://www.instagram.com/"><i class="bi bi-instagram fs-3 px-2"></i></a>
-                <a href="https://www.facebook.com/"><i class="bi bi-facebook fs-3 px-2"></i></a>
-                <a href="https://www.tiktok.com/"><i class="bi bi-tiktok fs-3 px-2"></i></a>
-                <a href="https://www.youtube.com/"><i class="bi bi-youtube fs-3 px-2"></i></i></a>
+                <a href="https://www.instagram.com/"><i class="bi bi-instagram fs-3 px-2 text-white"></i></a>
+                <a href="https://www.facebook.com/"><i class="bi bi-facebook fs-3 px-2 text-white"></i></a>
+                <a href="https://www.tiktok.com/"><i class="bi bi-tiktok fs-3 px-2 text-white"></i></a>
+                <a href="https://www.youtube.com/"><i class="bi bi-youtube fs-3 px-2 text-white"></i></i></a>
                 <p style="font-size: 10px; margin-left: 20px;">2024 Sport Development, San Salvador, El
                     Salvador.</p>
             </div>
