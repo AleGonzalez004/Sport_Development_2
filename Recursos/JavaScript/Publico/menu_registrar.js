@@ -1,3 +1,5 @@
+// Menu para el apartado del registrar cuenta.
+
 function MenuRegistar() {
     const MenuL =
         `    <nav class="navbar navbar-expand-md bg-body">

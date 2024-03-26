@@ -21,9 +21,13 @@
     <div class="p-2"></div>
 
     <main>
+    
+        <div class="p-2"></div>
+        <h3> Popular ahora mismo</h3>
+        <div class="p-2"></div>
         <div class="container">
             <div class="card-group">
-                <div class="card">
+                <div class="card card-clickable" onclick="cartazapatonike4()">
                     <img src="/Recursos/Imagenes/zapato.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
@@ -33,7 +37,7 @@
                         <small class="text-body-secondary">259,99 $</small>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card card-clickable" onclick="cartazapatonike4()">
                     <img src="/Recursos/Imagenes/zapato2.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
@@ -43,7 +47,8 @@
                         <small class="text-body-secondary">120,99 $</small>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card-clickable" onclick="cartazapatonike4()">
                     <img src="/Recursos/Imagenes/zapato3.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Nike Phantom GX 2 Elite</h5>
@@ -56,19 +61,23 @@
             </div>
         </div>
 
-        <div class="container p-5  bg-light text-center rounded">
+        <div class="p-4"></div>
         </div>
 
         <h3> Comprar por deporte</h3>
         <div class="scroll-container">
-            <img src="https://wallpapercave.com/wp/wp3183529.jpg" alt="Futbol" width="500" height="400">
-            <img src="https://images.hdqwalls.com/wallpapers/basketball-hd.jpg" alt="Baloncesto" width="500"
-                height="400">
-            <img src="https://wallpapercave.com/wp/wp2178485.jpg" alt="Volibol" width="500" height="400">
-            <img src="https://magazine.fortevillageresort.com/wp-content/uploads/2022/01/tennis.jpg" alt="Tenis"
-                width="500" height="400">
-            <img src="https://concepto.de/wp-content/uploads/2019/06/natacion-e1562943144215.jpg" alt="Natacion"
-                width="500" height="400">
+            <a href="/Vistas/Publico/catalogo.html"><img src="https://wallpapercave.com/wp/wp3183529.jpg" alt="Futbol"
+                    width="500" height="350"></a>
+            <a href="/Vistas/Publico/catalogo.html"><img src="https://images.hdqwalls.com/wallpapers/basketball-hd.jpg"
+                    alt="Baloncesto" width="500" height="350"></a>
+            <a href="/Vistas/Publico/catalogo.html"><img src="https://wallpapercave.com/wp/wp2178485.jpg" alt="Volibol"
+                    width="500" height="350">
+                <a href="/Vistas/Publico/catalogo.html"><img
+                        src="https://magazine.fortevillageresort.com/wp-content/uploads/2022/01/tennis.jpg" alt="Tenis"
+                        width="500" height="350"></a>
+                <a href="/Vistas/Publico/catalogo.html"><img
+                        src="https://concepto.de/wp-content/uploads/2019/06/natacion-e1562943144215.jpg" alt="Natacion"
+                        width="500" height="350"></a>
         </div>
     </main>
 
@@ -80,11 +89,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="/Controladores/Publico/navegacion_cartas.js"></script>
     <script type="text/javascript" src="/Controladores/Publico/cargar_menu_inicio.js"></script>
     <script type="text/javascript" src="/Recursos/JavaScript/Publico/menu_inicio.js"></script>
-    <script type="text/javascript" src="/Controladores/Publico/cargar_footer.js"></script>
-    <script type="text/javascript" src="/Recursos/JavaScript/Publico/footer.js"></script>
+    <script type="text/javascript" src="/Controladores/Publico/cargar_footer_index.js"></script>
+    <script type="text/javascript" src="/Recursos/JavaScript/Publico/footer_index.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,8 @@
 /* Estilo para el cursor indicando que es interactivo */
+body{
+    text-decoration: none;
+}
+
 .card-clickable {
     cursor: pointer;
 }

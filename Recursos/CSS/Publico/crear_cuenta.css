@@ -21,7 +21,11 @@
 
 body {
     background-image: url('/Recursos/Imagenes/logo.png');
-    background-size: 600px; /* Ajusta la imagen al tamaño del contenedor */
-    background-position: left bottom; /* Posiciona la imagen en la esquina inferior izquierda */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: 600px;
+    background-position: left bottom; 
+    background-repeat: no-repeat;
+}
+
+.icono-grande {
+  font-size: 1.5rem; 
 }
