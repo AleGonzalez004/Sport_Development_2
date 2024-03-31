@@ -9,8 +9,8 @@
     <link rel="icon" type="image/x-icon" href="/Recursos/Imagenes/logo.png">
     <link rel="stylesheet" href="/Recursos/CSS/Publico/catalogo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!--- CSS de Bootstrap --->
+    <link rel="stylesheet" href="/Recursos/CSS/Bootstrap CSS/bootstrap.css">
 
 </head>
 
@@ -19,67 +19,68 @@
     <div id="menu_navbar"></div>
     <!-- Final de Header -->
 
-    <div class="p-2"></div>
+    <main>
+        <div class="p-2"></div>
 
-    <h1 class="container">Comprar Articulos</h1>
+        <h1 class="container">Comprar Articulos</h1>
 
-    <div class="container">    <div class="card ">
-        <div class="card-header bg-black text-white">
-            Método de Pago
-        </div>
-        <div class="card-body bg-light">
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="nombre">Nombre en la Tarjeta</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Nombre en la Tarjeta">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="numero-tarjeta">Número de Tarjeta</label>
-                        <input type="text" class="form-control" id="numero-tarjeta" placeholder="Número de Tarjeta">
-                    </div>
+        <div class="container">
+            <div class="card ">
+                <div class="card-header bg-black text-white">
+                    Método de Pago
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="fecha">Fecha de Expiración</label>
-                        <input type="text" class="form-control" id="fecha" placeholder="MM/YY">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="cvv">CVV</label>
-                        <input type="text" class="form-control" id="cvv" placeholder="CVV">
-                    </div>
+                <div class="card-body bg-light">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nombre">Nombre en la Tarjeta</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre en la Tarjeta">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="numero-tarjeta">Número de Tarjeta</label>
+                                <input type="text" class="form-control" id="numero-tarjeta"
+                                    placeholder="Número de Tarjeta">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="fecha">Fecha de Expiración</label>
+                                <input type="text" class="form-control" id="fecha" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cvv">CVV</label>
+                                <input type="text" class="form-control" id="cvv" placeholder="CVV">
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-    </div></div>
-
-
-
-    <div class="p-4"></div>
-
-    <div class="container">
-        <div class="row justify-content-end">
-            <div class="col-auto">
-                <a href="/Vistas/Publico/resumen_compra.html">
-                    <button type="button" class="btn btn-dark btn-lg">
-                        Confirmar Comprar →<span class="fas fa-arrow-right"></span>
-                    </button>
-                </a>
             </div>
         </div>
-    </div>
 
-    <div class="p-4"></div>
+        <div class="p-4"></div>
+
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-auto">
+                    <a href="/Vistas/Publico/resumen_compra.html">
+                        <button type="button" class="btn btn-dark btn-lg">
+                            Confirmar Comprar →<span class="fas fa-arrow-right"></span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4"></div>
+    </main>
 
     <!-- Inicio Footer -->
     <div id="footer_contenedor"></div>
     <!-- Final Footer -->
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    <!-- JS de Bootstrap -->
+    <script src="/Recursos/JavaScript/Bootstrap JS/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="/Controladores/Publico/navegacion_cartas.js"></script>
     <script type="text/javascript" src="/Controladores/Publico/cargar_menu_inicio.js"></script>
     <script type="text/javascript" src="/Recursos/JavaScript/Publico/menu_inicio.js"></script>
