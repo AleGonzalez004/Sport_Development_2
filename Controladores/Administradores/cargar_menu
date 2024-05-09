@@ -1,6 +1,0 @@
-document.addEventListener('DOMContentLoaded', function(){
-    const Menu = document.getElementById("Navbar");
-    const menuregisHTML = Navbar();
-
-    ContenedorMenu.innerHTML = menuregisHTML;
-})
