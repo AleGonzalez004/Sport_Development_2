@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once('../../helpers/validator.php');
-// Se incluye la clase padre.
-require_once('../../models/handler/administrador_handler.php');
+require_once('/Api/Helpers/validator.php');
+// Se incluye la clase padre.s
+require_once('/Api/Models/Handler/administrador_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
@@ -20,7 +20,7 @@ class AdministradorData extends AdministradorHandler
             $this->id = $value;
             return true;
         } else {
-            $this->data_error = 'El identificador del administrador es incorrecto';
+            $this->data_error = 'El identificador del administrador es incorrecto.';
             return false;
         }
     }
@@ -56,7 +56,7 @@ class AdministradorData extends AdministradorHandler
     public function setCorreo($value, $min = 8, $max = 100)
     {
         if (!Validator::validateEmail($value)) {
-            $this->data_error = 'El correo no es válido';
+            $this->data_error = 'El correo no es válido.';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
             $this->correo = $value;
@@ -67,16 +67,16 @@ class AdministradorData extends AdministradorHandler
         }
     }
 
-    public function setAlias($value, $min = 6, $max = 25)
+    public function setUsuario($value, $min = 6, $max = 25)
     {
         if (!Validator::validateAlphanumeric($value)) {
-            $this->data_error = 'El alias debe ser un valor alfanumérico';
+            $this->data_error = 'El usuario debe ser un valor alfanumérico.';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->alias = $value;
+            $this->usuario = $value;
             return true;
         } else {
-            $this->data_error = 'El alias debe tener una longitud entre ' . $min . ' y ' . $max;
+            $this->data_error = 'El usuario debe tener una longitud entre ' . $min . ' y ' . $max;
             return false;
         }
     }
