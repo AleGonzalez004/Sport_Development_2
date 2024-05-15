@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once('../../helpers/validator.php');
+require_once('Api/');
 // Se incluye la clase padre.
 require_once('../../models/handler/producto_handler.php');
 /*
@@ -78,23 +78,6 @@ class ProductoData extends ProductoHandler
         }
     }
 
-    public function setImagen($file, $filename = null)
-    {
-        if (Validator::validateImageFile($file, 1000)) {
-            $this->imagen = Validator::getFileName();
-            return true;
-        } elseif (Validator::getFileError()) {
-            $this->data_error = Validator::getFileError();
-            return false;
-        } elseif ($filename) {
-            $this->imagen = $filename;
-            return true;
-        } else {
-            $this->imagen = 'default.png';
-            return true;
-        }
-    }
-
     public function setCategoria($value)
     {
         if (Validator::validateNaturalNumber($value)) {
@@ -117,27 +100,11 @@ class ProductoData extends ProductoHandler
         }
     }
 
-    public function setFilename()
-    {
-        if ($data = $this->readFilename()) {
-            $this->filename = $data['imagen_producto'];
-            return true;
-        } else {
-            $this->data_error = 'Producto inexistente';
-            return false;
-        }
-    }
-
     /*
      *  Métodos para obtener los atributos adicionales.
      */
     public function getDataError()
     {
         return $this->data_error;
-    }
-
-    public function getFilename()
-    {
-        return $this->filename;
     }
 }
