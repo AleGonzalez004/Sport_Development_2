@@ -20,9 +20,9 @@
 </head>
 
 <body>
-  <!-- Inicio del Header -->
-  <div id="menu_navbar"></div>
-  <!-- Final del Header -->
+    <!-- Inicio del Header -->
+    <div id="menu_navbar"></div>
+    <!-- Final del Header -->
 
 
 
@@ -36,33 +36,35 @@
                         <input type="search" class="form-control" name="search" placeholder="Buscar" required>
                     </div>
                     <div class="col-6">
-                        <button type="submit" class="btn btn-success gradient-custom">
+                        <button type="submit" class="btn btn-dark gradient-custom">
                             <i class="bi bi-search"></i>
                         </button>
-                        <button type="reset" class="btn btn-secondary gradient-custom" onclick="fillTable()">
+                        <button type="reset" class="btn btn-dark gradient-custom" onclick="fillTable()">
                             <i class="bi bi-x-square-fill"></i>
+                        </button>
+                        <button type="button" class="btn btn-dark gradient-custom" data-bs-toggle="modal"
+                            data-bs-target="#createModal">
+                            <i class="bi bi-plus-square-fill"></i>
                         </button>
                     </div>
                 </div>
             </form>
 
             <div class="col-sm-12 col-md-6 text-end">
-                <!-- Botón para abrir una caja de diálogo al momento de crear un nuevo registro -->
-                <button type="button" class="btn btn-primary gradient-custom" data-bs-toggle="modal" data-bs-target="#createModal">
-                    <i class="bi bi-plus-square-fill"></i>
-                </button>
-            
-                <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+                <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="createModalLabel">Agregar Género</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="genreName" class="form-label">Nombre del Género</label>
-                                    <input type="text" class="form-control" id="genreName" placeholder="Ingrese el nombre del género">
+                                    <input type="text" class="form-control" id="genreName"
+                                        placeholder="Ingrese el nombre del género">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -73,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
         <!-- Tabla para mostrar los registros existentes -->
@@ -128,7 +130,7 @@
     <!-- Inicio Footer -->
     <div id="footer_contenedor"></div>
     <!-- Final Footer -->
-    
+
     <!-- Scripts -->
     <!-- JS de Bootstrap -->
     <script src="/Resources/JavaScript/Bootstrap JS/bootstrap.bundle.js"></script>

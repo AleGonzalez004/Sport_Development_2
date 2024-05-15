@@ -20,9 +20,9 @@
 </head>
 
 <body>
-  <!-- Inicio del Header -->
-  <div id="menu_navbar"></div>
-  <!-- Final del Header -->
+    <!-- Inicio del Header -->
+    <div id="menu_navbar"></div>
+    <!-- Final del Header -->
 
 
     <main class="container" style="padding-top: 75px; padding-bottom: 100px;">
@@ -30,28 +30,21 @@
         <div class="row">
             <!-- Formulario de búsqueda -->
             <form class="col-sm-12 col-md-6" id="searchForm">
-                <div class="row">
-                    <div class="col-6">
-                        <input type="search" class="form-control" name="search" placeholder="Buscar" required>
-                    </div>
-                    <div class="col-6">
-                        <button type="submit" class="btn btn-success gradient-custom">
-                            <i class="bi bi-search"></i>
-                        </button>
-                        <button type="reset" class="btn btn-secondary gradient-custom" onclick="fillTable()">
-                            <i class="bi bi-x-square-fill"></i>
-                        </button>
-                    </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-dark gradient-custom">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button type="reset" class="btn btn-dark gradient-custom" onclick="fillTable()">
+                        <i class="bi bi-x-square-fill"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark gradient-custom" data-bs-toggle="modal"
+                        data-bs-target="#myModal">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </button>
                 </div>
             </form>
 
             <div class="col-sm-12 col-md-6 text-end">
-                <!-- Botón para abrir una caja de diálogo al momento de crear un nuevo registro -->
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                    Agregar +
-                </button>
-
                 <!-- Modal de Agregar Nuevo Registro -->
                 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -141,12 +134,12 @@
     <div class="py-5"></div>
     <div class="py-5"></div>
     <div class="py-5"></div>
-    
+
 
     <!-- Inicio Footer -->
     <div id="footer_contenedor"></div>
     <!-- Final Footer -->
-    
+
     <!-- Scripts -->
     <!-- JS de Bootstrap -->
     <script src="/Resources/JavaScript/Bootstrap JS/bootstrap.bundle.js"></script>
