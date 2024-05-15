@@ -17,6 +17,7 @@ const SAVE_FORM = document.getElementById('saveForm'),
     USUARIO_ADMINISTRADOR = document.getElementById('usuarioAdmin'),
     CLAVE_ADMINISTRADOR = document.getElementById('claveAdmin'),
     CONFIRMAR_CLAVE = document.getElementById('confirmarClave');
+    CARGO_ADMINISTRADOR = document.getElementById('cargoAdmin');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -85,6 +86,7 @@ const fillTable = async (form = null) => {
                     <td>${row.nombre}</td>
                     <td>${row.correo}</td>
                     <td>${row.usuario}</td>
+                    <td>${row.clave}</td>
                     <td>${row.cargo}</td>
                     <td>
                         <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_admin})">
@@ -118,6 +120,7 @@ const openCreate = () => {
     USUARIO_ADMINISTRADOR.disabled = false;
     CLAVE_ADMINISTRADOR.disabled = false;
     CONFIRMAR_CLAVE.disabled = false;
+    CARGO_ADMINISTRADOR.disabled = false;
 }
 
 /*
@@ -141,13 +144,13 @@ const openUpdate = async (id) => {
         USUARIO_ADMINISTRADOR.disabled = true;
         CLAVE_ADMINISTRADOR.disabled = true;
         CONFIRMAR_CLAVE.disabled = true;
+        CARGO_ADMINISTRADOR.disabled = true;
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
         ID_ADMINISTRADOR.value = ROW.id_admin;
         NOMBRE_ADMINISTRADOR.value = ROW.nombre;
         APELLIDO_ADMINISTRADOR.value = ROW.apellido;
         CORREO_ADMINISTRADOR.value = ROW.correo;
-        USUARIO_ADMINISTRADOR.value = ROW.usuario;
     } else {
         sweetAlert(2, DATA.error, false);
     }
