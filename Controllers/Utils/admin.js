@@ -32,7 +32,7 @@ function MenuIndex() {
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#" onclick="Clientes()">Clientes</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="Clientes()">Administradores</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="Administradores()">Administradores</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

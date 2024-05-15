@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administradores | Sport Dev</title>
+    <!--- CSS de Bootstrap --->
+    <link rel="stylesheet" href="/Resources/CSS/Bootstrap CSS/bootstrap.css">
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Icono de la pagina -->
+    <link rel="icon" type="image/x-icon" href="/Recursos/Imagenes/logo.png">
+
+    <!--Google Fonts (Para ponerle otros fuentes de texto.)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Inicio del Header -->
+  <div id="menu_navbar"></div>
+  <!-- Final del Header -->
+
+
+    <main class="container" style="padding-top: 75px; padding-bottom: 100px;">
+        <h3 id="mainTitle">Administrar Administradores</h3>
+        <div class="row">
+            <!-- Formulario de búsqueda -->
+            <form class="col-sm-12 col-md-6" id="searchForm">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-success gradient-custom">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <button type="reset" class="btn btn-secondary gradient-custom" onclick="fillTable()">
+                            <i class="bi bi-x-square-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Botón para abrir el modal de registro -->
+            <button type="button" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal"
+                data-bs-target="#registroModal">
+                <i class="bi bi-plus-square-fill"></i>
+            </button>
+
+            <!-- Modal de Registro -->
+            <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar Nuevo Registro</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control mb-3"
+                                placeholder="Ingrese su nombre">
+
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" id="apellido" name="apellido" class="form-control mb-3"
+                                placeholder="Ingrese su apellido">
+
+                            <label for="correo">Correo:</label>
+                            <input type="email" id="correo" name="correo" class="form-control mb-3"
+                                placeholder="Ingrese su correo electrónico">
+
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" class="form-control mb-3"
+                                placeholder="Ingrese su número de teléfono">
+
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" id="direccion" name="direccion" class="form-control"
+                                placeholder="Ingrese su dirección">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla para mostrar los registros existentes -->
+        <table class="table table-hover">
+            <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+            <thead>
+                <tr>
+                    <td colspan="3" id="rowsFound"></td>
+                </tr>
+                <tr class="text-center">
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        <!-- Componente Modal para guardar un registro -->
+        <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalTitle"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Formulario para guardar un registro -->
+                    <form id="saveForm">
+                        <div class="modal-body row g-3">
+                            <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                            <input type="hidden" id="idCliente" name="idCliente">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="nombreCliente" class="form-label">Nombre del cliente</label>
+                                <input id="nombreCliente" type="text" name="nombreCliente" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <label for="apellidoCliente" class="form-label">Apellido del cliente</label>
+                                <input id="apellidoCliente" type="text" name="apellidoCliente" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <label for="correoCliente" class="form-label">Correo del cliente</label>
+                                <input id="correoCliente" type="text" name="correoCliente" class="form-control"
+                                    required>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-6">
+                                <label for="teléfonoCliente" class="form-label">Telefono del cliente</label>
+                                <input id="teléfonoCliente" type="text" name="teléfonoCliente" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <label for="direccionCliente" class="form-label">Direccion del cliente</label>
+                                <input id="direccionCliente" type="text" name="direccionCliente" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="form-check form-switch form-check-reverse">
+                                <input class="form-check-input" type="checkbox" id="estadoCliente" name="estadoCliente"
+                                    checked>
+                                <label class="form-check-label" for="estadoCliente">Estado del cliente</label>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div class="py-5"></div>
+    <div class="py-5"></div>
+    <div class="py-5"></div>
+    <div class="py-5"></div>
+    
+
+    <!-- Inicio Footer -->
+    <div id="footer_contenedor"></div>
+    <!-- Final Footer -->
+    
+    <!-- Scripts -->
+    <!-- JS de Bootstrap -->
+    <script src="/Recursos/JavaScript/Bootstrap JS/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="/Controllers/Utils/admin.js"></script>
+</body>
+
+</html>
