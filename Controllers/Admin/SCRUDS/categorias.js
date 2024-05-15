@@ -1,5 +1,5 @@
 // Constante para completar la ruta de la API.
-const CATEGORIA_API = 'Api/Services/';
+const CATEGORIA_API = 'Api/Services/Admin/categorias.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
@@ -11,7 +11,8 @@ const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
     ID_CATEGORIA = document.getElementById('idCategoria'),
-    NOMBRE = document.getElementById('nombre')
+    NOMBRE_CATEGORIA = document.getElementById('nombreCategoria')
+    DESCRIPCION_CATEGORIA = document.getElementById('descripcionCategoria')
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -76,18 +77,14 @@ const fillTable = async (form = null) => {
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             TABLE_BODY.innerHTML += `
                 <tr>
-                    <td><img src="${SERVER_URL}images/categorias/${row.imagen_categoria}" height="50"></td>
-                    <td>${row.nombre_categoria}</td>
-                    <td>${row.descripcion_categoria}</td>
+                    <td>${row.nombre}</td>
+                    <td>${row.descripcion}</td>
                     <td>
                         <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_categoria})">
                             <i class="bi bi-pencil-fill"></i>
                         </button>
                         <button type="button" class="btn btn-danger" onclick="openDelete(${row.id_categoria})">
                             <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-warning" onclick="openReport(${row.id_categoria})">
-                            <i class="bi bi-filetype-pdf"></i>
                         </button>
                     </td>
                 </tr>
@@ -166,18 +163,4 @@ const openDelete = async (id) => {
             sweetAlert(2, DATA.error, false);
         }
     }
-}
-
-/*
-*   Función para abrir un reporte parametrizado de productos de una categoría.
-*   Parámetros: id (identificador del registro seleccionado).
-*   Retorno: ninguno.
-*/
-const openReport = (id) => {
-    // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
-    const PATH = new URL(`${SERVER_URL}reports/admin/productos_categoria.php`);
-    // Se agrega un parámetro a la ruta con el valor del registro seleccionado.
-    PATH.searchParams.append('idCategoria', id);
-    // Se abre el reporte en una nueva pestaña.
-    window.open(PATH.href);
 }
