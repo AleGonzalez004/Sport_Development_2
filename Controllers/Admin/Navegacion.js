@@ -33,5 +33,5 @@ function Comentarios() {
     window.location.href = "/Views/Admin/comentario.html";
 }
 function Perfil() {
-    window.location.href = "/Views/Admin/Perfil.html";
+    window.location.href = "/Views/Admin/perfil.html";
 }
