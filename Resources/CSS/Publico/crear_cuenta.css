@@ -20,7 +20,7 @@
   }
 
 body {
-    background-image: url('/Recursos/Imagenes/logo.png');
+    background-image: url('/Resources/Images/logo.png');
     background-size: 600px;
     background-position: left bottom; 
     background-repeat: no-repeat;
