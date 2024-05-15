@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Inicio de Sesión | Sport Dev</title>
+    <title>Perfil | Sport Dev</title>
     <!--- CSS de Bootstrap --->
     <link rel="stylesheet" href="/Resources/CSS/Bootstrap CSS/bootstrap.css">
 
@@ -36,8 +36,7 @@
 
                     <div class="container">
                         <img src="https://th.bing.com/th/id/R.60bac2944320fe22856b7cbe450d6ce7?rik=Fx104%2bZB36O1XQ&riu=http%3a%2f%2fakacdn.transfermarkt.de%2fimages%2fportrait%2foriginals%2f8198-1413207036.jpg&ehk=VI%2f7P24POWJm6N09AeZP7sD3kixApS6K0K1SDtynDlo%3d&risl=&pid=ImgRaw&r=0"
-                            class="rounded-circle" alt="Imagen redonda" height="250" width="290">
-                        <i class="bi bi-pencil-fill text-white"></i>
+                            class="rounded-circle" alt="Imagen redonda" height="200" width="200">
                     </div>
 
                     <div class="col-md-6">
@@ -48,18 +47,6 @@
                     <div class="col-md-6">
                         <label for="clave" class="form-label"></label>
                         <input placeholder="Gonzalez Carrillo" type="text" id="apellido" name="apellido"
-                            class="form-control" readonly>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <label for="correo" class="form-label"> </label>
-                        <input placeholder="San salvador" type="text" id="direccion" name="direccion"
-                            class="form-control" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="clave" class="form-label"></label>
-                        <input placeholder="54632874" type="number" pattern="[0-9]" maxlength="10" id="dui" name="dui"
                             class="form-control" readonly>
                     </div>
                 </div>
@@ -89,14 +76,16 @@
                 </div>
                 <div class="text-center">
                 </div>
-                <div class="container mt-5">
-                    <div class="row justify-content-end">
-                        <div class="col-auto">
-                            <a href="/Views/Admin/perfil.html" type="submit" class="btn btn-light mt-4"
-                                style="color: #245C9D;">Editar datos</a>
+                <div class="container mt-5">   
+                    <div class="row">
+                        <div class="col d-flex justify-content-start">
+                            <a href="/Views/Admin/perfil.html" type="submit" class="btn btn-light mt-4" style="color: #245C9D;">Editar datos</a>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <a href="/Views/Admin/index.html" type="submit" class="btn btn-danger mt-4">Cerrar Sesion</a>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
     </main>
