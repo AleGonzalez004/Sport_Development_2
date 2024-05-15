@@ -20,9 +20,9 @@
 </head>
 
 <body>
-  <!-- Inicio del Header -->
-  <div id="menu_navbar"></div>
-  <!-- Final del Header -->
+    <!-- Inicio del Header -->
+    <div id="menu_navbar"></div>
+    <!-- Final del Header -->
 
 
     <main class="container" style="padding-top: 75px; padding-bottom: 100px;">
@@ -35,36 +35,40 @@
                         <input type="search" class="form-control" name="search" placeholder="Buscar" required>
                     </div>
                     <div class="col-6">
-                        <button type="submit" class="btn btn-success gradient-custom">
+                        <button type="submit" class="btn btn-dark gradient-custom">
                             <i class="bi bi-search"></i>
                         </button>
-                        <button type="reset" class="btn btn-secondary gradient-custom" onclick="fillTable()">
+                        <button type="reset" class="btn btn-dark gradient-custom" onclick="fillTable()">
                             <i class="bi bi-x-square-fill"></i>
+                        </button>
+                        <button type="button" class="btn btn-dark gradient-custom" data-bs-toggle="modal"
+                            data-bs-target="#createModal">
+                            <i class="bi bi-plus-square-fill"></i>
                         </button>
                     </div>
                 </div>
             </form>
 
             <div class="col-sm-12 col-md-6 text-end">
-                <!-- Botón para abrir una caja de diálogo al momento de crear un nuevo registro -->
-                <button type="button" class="btn btn-primary gradient-custom" data-bs-toggle="modal" data-bs-target="#createModal">
-                    <i class="bi bi-plus-square-fill"></i>
-                </button>
-            
-                <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+                <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="createModalLabel">Agregar Imagen</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="imageFile" class="form-label">Seleccionar Imagen</label>
-                                    <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg" maxsize="100000000" onchange="validateAndPreviewImage(this)">
+                                    <input type="file" class="form-control" id="imageFile"
+                                        accept="image/png, image/jpeg" maxsize="100000000"
+                                        onchange="validateAndPreviewImage(this)">
                                 </div>
                                 <div class="mb-3">
-                                    <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen" style="display: none;">
+                                    <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
+                                        style="display: none;">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -75,12 +79,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <script>
                 function validateAndPreviewImage(input) {
                     var file = input.files[0];
                     var maxSize = 100 * 1024 * 1024; // 100 MB
-            
+
                     if (file && (file.type === 'image/png' || file.type === 'image/jpeg') && file.size <= maxSize) {
                         var previewImage = document.getElementById('previewImage');
                         previewImage.src = URL.createObjectURL(file);
@@ -138,20 +142,20 @@
         </div>
     </main>
 
-    
+
     <div class="py-5"></div>
     <div class="py-5"></div>
     <div class="py-5"></div>
     <div class="py-5"></div>
-  
+
     <!-- Inicio Footer -->
     <div id="footer_contenedor"></div>
     <!-- Final Footer -->
-    
+
     <!-- Scripts -->
     <!-- JS de Bootstrap -->
     <script src="/Resources/JavaScript/Bootstrap JS/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="/Controllers/Utils/admin.js"></script>
-  </body>
-  
-  </html>
+</body>
+
+</html>
