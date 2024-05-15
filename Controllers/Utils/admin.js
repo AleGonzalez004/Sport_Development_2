@@ -2,7 +2,7 @@ function MenuIndex() {
     const Menu =
         `<nav class="navbar navbar-expand-lg" style="background-color: #245C9D;" id="Navbar">
     <div class="container-fluid">
-        <img src="/Recursos/Imagenes/logo_blanco.png" class="border-0" alt="..."
+        <img src="/Resources/Images/logo_blanco.png" class="border-0" alt="..."
             style="height: 45px; width: 45px; background-color: #245C9D;">
         <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
