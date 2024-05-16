@@ -23,7 +23,7 @@ CREATE TABLE tb_pedidos (
     id_pedido INT PRIMARY KEY NOT NULL,
     id_cliente INT,
     estado_pedido BOOL NOT NULL,
-	fecha_pedido DATE NOT NULL DEFAULT (CURRENT_TIME()),
+    fecha_pedido DATE NOT NULL DEFAULT (CURRENT_TIME()),
     direccion VARCHAR(255) NOT NULL
 );
  
