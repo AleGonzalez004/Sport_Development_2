@@ -62,7 +62,16 @@
                             <div class="mb-3">
                                 <label for="brandName" class="form-label">Nombre de la Marca</label>
                                 <input type="text" class="form-control" id="brandName"
-                                    placeholder="Ingrese el nombre de la marca">
+                                    placeholder="Ingrese la marca">
+                            </div>
+                            <div class="mb-3">
+                                <label for="imageFile" class="form-label">Seleccionar Imagen</label>
+                                <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
+                                    maxsize="100000000" onchange="validateAndPreviewImage(this)">
+                            </div>
+                            <div class="mb-3">
+                                <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
+                                    style="display: none;">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -108,6 +117,7 @@
                                 <label for="nombreMarca" class="form-label">Nombre</label>
                                 <input id="nombreMarca" type="text" name="nombreMarca" class="form-control" required>
                             </div>
+                           
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Guardar</button>
