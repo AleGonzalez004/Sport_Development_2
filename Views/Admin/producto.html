@@ -77,20 +77,45 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="productBrand" class="form-label">Marca</label>
-                                                <input type="text" class="form-control" id="productBrand" required>
+                                                <select class="form-control" id="productBrand" required>
+                                                    <option value="">Seleccione una marca</option>
+                                                    <option value="nike">Nike</option>
+                                                    <option value="adidas">Adidas</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="productSport" class="form-label">Deporte</label>
-                                                <input type="text" class="form-control" id="productSport" required>
+                                                <select class="form-control" id="productSport" required>
+                                                    <option value="">Seleccione un deporte</option>
+                                                    <option value="futbol">Fútbol</option>
+                                                    <option value="baloncesto">Baloncesto</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="productGender" class="form-label">Género</label>
-                                                <input type="text" class="form-control" id="productGender" required>
+                                                <select class="form-control" id="productGender" required>
+                                                    <option value="">Seleccione un género</option>
+                                                    <option value="masculino">Masculino</option>
+                                                    <option value="femenino">Femenino</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="productGender" class="form-label">Categoria</label>
-                                                <input type="text" class="form-control" id="productGender" required>
+                                                <label for="productCategory" class="form-label">Categoría</label>
+                                                <select class="form-control" id="productCategory" required>
+                                                    <option value="">Seleccione una categoría</option>
+                                                    <option value="ropa">Ropa</option>
+                                                    <option value="calzado">Calzado</option>
+                                                </select>
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="imageFile" class="form-label">Seleccionar Imagen</label>
+                                                <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
+                                                    maxsize="100000000" onchange="validateAndPreviewImage(this)">
+                                            </div>
+                                            <div class="mb-3">
+                                                <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
+                                                    style="display: none;">
+                                            </div>                                            
                                         </form>
                                     </div>
                                     <div class="modal-footer">

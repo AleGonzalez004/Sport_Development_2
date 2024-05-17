@@ -63,6 +63,15 @@
                                 <input type="text" class="form-control" id="sportName"
                                     placeholder="Ingrese un deporte">
                             </div>
+                            <div class="mb-3">
+                                <label for="imageFile" class="form-label">Seleccionar Imagen</label>
+                                <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
+                                    maxsize="100000000" onchange="validateAndPreviewImage(this)">
+                            </div>
+                            <div class="mb-3">
+                                <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
+                                    style="display: none;">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
