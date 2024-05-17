@@ -2,7 +2,7 @@
 // Se incluye la clase para validar los datos de entrada.
 require_once('/Api/Helpers/validator.php');
 // Se incluye la clase padre.s
-require_once('/Api/Models/Handler/administrador_handler.php');
+require_once('/Api/Models/Handler/valoraciones_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
