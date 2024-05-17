@@ -72,17 +72,50 @@
                                                 <input type="number" class="form-control" id="productPrice" required>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="productPrice" class="form-label">Estado</label>
+                                                <input type="number" class="form-control" id="productPrice" required>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="productBrand" class="form-label">Marca</label>
-                                                <input type="text" class="form-control" id="productBrand" required>
+                                                <select class="form-control" id="productBrand" required>
+                                                    <option value="">Seleccione una marca</option>
+                                                    <option value="nike">Nike</option>
+                                                    <option value="adidas">Adidas</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="productSport" class="form-label">Deporte</label>
-                                                <input type="text" class="form-control" id="productSport" required>
+                                                <select class="form-control" id="productSport" required>
+                                                    <option value="">Seleccione un deporte</option>
+                                                    <option value="futbol">Fútbol</option>
+                                                    <option value="baloncesto">Baloncesto</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="productGender" class="form-label">Género</label>
-                                                <input type="text" class="form-control" id="productGender" required>
+                                                <select class="form-control" id="productGender" required>
+                                                    <option value="">Seleccione un género</option>
+                                                    <option value="masculino">Masculino</option>
+                                                    <option value="femenino">Femenino</option>
+                                                </select>
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="productCategory" class="form-label">Categoría</label>
+                                                <select class="form-control" id="productCategory" required>
+                                                    <option value="">Seleccione una categoría</option>
+                                                    <option value="ropa">Ropa</option>
+                                                    <option value="calzado">Calzado</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="imageFile" class="form-label">Seleccionar Imagen</label>
+                                                <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
+                                                    maxsize="100000000" onchange="validateAndPreviewImage(this)">
+                                            </div>
+                                            <div class="mb-3">
+                                                <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
+                                                    style="display: none;">
+                                            </div>                                            
                                         </form>
                                     </div>
                                     <div class="modal-footer">
@@ -98,91 +131,89 @@
             </form>
 
 
-                <!-- Tabla para mostrar los registros existentes -->
-                <table class="table table-hover">
-                    <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
-                    <thead>
-                        <tr>
-                            <td colspan="7" id="rowsFound"></td>
-                        </tr>
-                        <tr class="text-center">
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>Marca</th>
-                            <th>Deporte</th>
-                            <th>Genero</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <!-- Cuerpo de la tabla para mostrar un registro por fila -->
-                    <tbody id="tableBody"></tbody>
-                </table>
+            <!-- Tabla para mostrar los registros existentes -->
+            <table class="table table-hover">
+                <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+                <thead>
+                    <tr>
+                        <td colspan="7" id="rowsFound"></td>
+                    </tr>
+                    <tr class="text-center">
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Marca</th>
+                        <th>Deporte</th>
+                        <th>Genero</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+                <tbody id="tableBody"></tbody>
+            </table>
 
-                <!-- Componente Modal para guardar un registro -->
-                <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                    aria-labelledby="modalTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="modalTitle"></h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <!-- Formulario para crear o actualizar un registro -->
-                            <form id="saveForm">
-                                <div class="modal-body row g-3">
-                                    <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                                    <input type="hidden" id="idProducto" name="idProducto">
-                                    <div class="col-sm-12 col-md-6">
-                                        <label for="nombreProducto" class="form-label">Nombre</label>
-                                        <input id="nombreProducto" type="text" name="nombreProducto"
-                                            class="form-control" required>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <label for="descripcionProducto" class="form-label">Descripción</label>
-                                        <input id="descripcionProducto" type="text" name="descripcionProducto"
-                                            class="form-control" required>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <label for="precioProducto" class="form-label">Precio (US$)</label>
-                                        <input id="precioProducto" type="number" name="precioProducto" min="0.01"
-                                            step="0.01" class="form-control" required>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <label for="marcaproducto" class="form-label">Marca</label>
-                                        <input id="marcaproducto" type="text" name="marcaproducto" class="form-control"
-                                            step="1" class="form-control" required>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <label for="categoriaProducto" class="form-label">Categoría</label>
-                                        <select id="categoriaProducto" name="categoriaProducto" class="form-select"
-                                            required>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <label for="deporteProducto" class="form-label">Deporte</label>
-                                        <input id="deporteProducto" type="text" name="deporteProducto"
-                                            class="form-control">
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <label for="generoProducto" class="form-label">Genero</label>
-                                        <input id="generoProducto" type="text" name="generoProducto"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-check form-switch form-check-reverse">
-                                        <input class="form-check-input" type="checkbox" id="estadoProducto"
-                                            name="estadoProducto" checked>
-                                        <label class="form-check-label" for="estadoProducto">Estado</label>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
-                            </form>
+            <!-- Componente Modal para guardar un registro -->
+            <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modalTitle"></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <!-- Formulario para crear o actualizar un registro -->
+                        <form id="saveForm">
+                            <div class="modal-body row g-3">
+                                <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                                <input type="hidden" id="idProducto" name="idProducto">
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="nombreProducto" class="form-label">Nombre</label>
+                                    <input id="nombreProducto" type="text" name="nombreProducto" class="form-control"
+                                        required>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="descripcionProducto" class="form-label">Descripción</label>
+                                    <input id="descripcionProducto" type="text" name="descripcionProducto"
+                                        class="form-control" required>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="precioProducto" class="form-label">Precio (US$)</label>
+                                    <input id="precioProducto" type="number" name="precioProducto" min="0.01"
+                                        step="0.01" class="form-control" required>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="marcaproducto" class="form-label">Marca</label>
+                                    <input id="marcaproducto" type="text" name="marcaproducto" class="form-control"
+                                        step="1" class="form-control" required>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="categoriaProducto" class="form-label">Categoría</label>
+                                    <select id="categoriaProducto" name="categoriaProducto" class="form-select"
+                                        required>
+                                    </select>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="deporteProducto" class="form-label">Deporte</label>
+                                    <input id="deporteProducto" type="text" name="deporteProducto" class="form-control">
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="generoProducto" class="form-label">Genero</label>
+                                    <input id="generoProducto" type="text" name="generoProducto" class="form-control">
+                                </div>
+                                <div class="form-check form-switch form-check-reverse">
+                                    <input class="form-check-input" type="checkbox" id="estadoProducto"
+                                        name="estadoProducto" checked>
+                                    <label class="form-check-label" for="estadoProducto">Estado</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
                     </div>
-
+                </div>
+            </div>
+        </div>
     </main>
 
     <div class="py-5"></div>

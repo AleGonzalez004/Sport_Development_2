@@ -24,8 +24,8 @@ CREATE TABLE tb_clientes (
     nombre VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE tb_categorias (
-    id_categoria INT PRIMARY KEY NOT NULL,
+CREATE TABLE tb_colores (
+    id_colores INT PRIMARY KEY NOT NULL,
     nombre VARCHAR(50) NOT NULL
 );
 
@@ -71,6 +71,7 @@ CREATE TABLE tb_productos (
     descripcion VARCHAR(250) NOT NULL,
     precio DECIMAL(6,2) NOT NULL CHECK (precio >= 0),
     estado_producto BOOLEAN NOT NULL,
+    imagen_producto VARCHAR(50) NOT NULL,
     id_admin INT,
     id_marca INT,
     id_deporte INT,
@@ -90,7 +91,7 @@ CREATE TABLE tb_administradores (
 CREATE TABLE tb_marcas (
     id_marca INT PRIMARY KEY NOT NULL,
     nombre VARCHAR(50) NOT NULL,
-    
+    imagen VARCHAR(255) NOT NULL
 );
  
 CREATE TABLE tb_deportes (
