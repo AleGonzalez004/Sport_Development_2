@@ -24,8 +24,8 @@ CREATE TABLE tb_clientes (
     nombre VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE tb_categorias (
-    id_categoria INT PRIMARY KEY NOT NULL,
+CREATE TABLE tb_colores (
+    id_colores INT PRIMARY KEY NOT NULL,
     nombre VARCHAR(50) NOT NULL
 );
 
@@ -90,7 +90,7 @@ CREATE TABLE tb_administradores (
 CREATE TABLE tb_marcas (
     id_marca INT PRIMARY KEY NOT NULL,
     nombre VARCHAR(50) NOT NULL,
-    
+    imagen VARCHAR(255) NOT NULL
 );
  
 CREATE TABLE tb_deportes (
