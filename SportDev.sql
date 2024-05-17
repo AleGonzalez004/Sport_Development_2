@@ -19,6 +19,17 @@ CREATE TABLE tb_clientes (
     estado_cliente BOOLEAN NOT NULL
 );
  
+ CREATE TABLE tb_favoritos (
+    id_favoritos INT PRIMARY KEY NOT NULL,
+    nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE tb_categorias (
+    id_categoria INT PRIMARY KEY NOT NULL,
+    nombre VARCHAR(50) NOT NULL
+);
+
+ 
 CREATE TABLE tb_pedidos (
     id_pedido INT PRIMARY KEY NOT NULL,
     id_cliente INT,
@@ -78,7 +89,8 @@ CREATE TABLE tb_administradores (
 );
 CREATE TABLE tb_marcas (
     id_marca INT PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50) NOT NULL
+    nombre VARCHAR(50) NOT NULL,
+    
 );
  
 CREATE TABLE tb_deportes (
@@ -101,6 +113,8 @@ CREATE TABLE tb_categorias (
     id_categoria INT PRIMARY KEY NOT NULL,
     nombre VARCHAR(50) NOT NULL
 );
+
+
 
 -- Claves foráneas
  
