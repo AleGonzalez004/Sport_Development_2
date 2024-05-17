@@ -34,11 +34,45 @@
     <div class="p-1"></div>
 
     <main>
-        <div class="container p-4 col-10 col-sm-10 col-md-8 col-xl-5 m-auto mt-6">
-            <div class="p-4 card text-center mt-5 mx-auto" style="background-color: #245C9D;">
-                <h3 class="text-white">Iniciar Sesion</h3>
-                <div class="row">
-                    <form class="d-none" id="loginForm">
+        <!-- Formulario para ingresar a la tienda en linea. -->
+        <form class="d-none" id="signupForm">
+            <div class="row g-3">
+                <div class="col-sm-12 col-md-6">
+                    <label for="nombreAdministrador" class="form-label">Nombre</label>
+                    <input id="nombreAdministrador" type="text" name="nombreAdministrador" class="form-control"
+                        required>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <label for="aliasAdministrador" class="form-label">Usuario</label>
+                    <input id="aliasAdministrador" type="text" name="aliasAdministrador" class="form-control" required>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <label for="correoAdministrador" class="form-label">Correo</label>
+                    <input id="correoAdministrador" type="email" name="correoAdministrador" class="form-control"
+                        required>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <label for="claveAdministrador" class="form-label">Contraseña</label>
+                    <input id="claveAdministrador" type="password" name="claveAdministrador" class="form-control"
+                        required>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <label for="confirmarClave" class="form-label">Confirmar contraseña</label>
+                    <input id="confirmarClave" type="password" name="confirmarClave" class="form-control" required>
+                </div>
+                <div class="text-center">
+                    <button type="reset" class="btn btn-secondary"><i class="bi bi-x-square"></i> Cancelar</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Guardar</button>
+                </div>
+            </div>
+        </form>
+        <!-- Formulario para ingresar a la tienda en linea. -->
+        <form class="d-none" id="loginForm">
+            <div class="container p-4 col-10 col-sm-10 col-md-8 col-xl-5 m-auto mt-6">
+                <div class="p-4 card text-center mt-5 mx-auto" style="background-color: #245C9D;">
+                    <h3 class="text-white">Iniciar Sesion</h3>
+                    <div class="row">
                         <div class="p-1 mt-5">
                             <h5 class="text-white text-start">Ingrese su correo:</h5>
                             <label for="correo" class="form-label"> </label>
@@ -59,10 +93,12 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
+
     </main>
     <!-- Fin del Cotenedor del login -->
 
