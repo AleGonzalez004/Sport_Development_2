@@ -30,13 +30,18 @@
         <div class="row">
             <!-- Formulario de búsqueda -->
             <form class="col-sm-12 col-md-6" id="searchForm">
-                <div class="col-6">
-                    <button type="submit" class="btn btn-dark gradient-custom">
-                        <i class="bi bi-search"></i>
-                    </button>
-                    <button type="reset" class="btn btn-dark gradient-custom" onclick="fillTable()">
-                        <i class="bi bi-x-square-fill"></i>
-                    </button>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-dark gradient-custom">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <button type="reset" class="btn btn-dark gradient-custom" onclick="fillTable()">
+                            <i class="bi bi-x-square-fill"></i>
+                        </button>
+                        <!-- Botón para abrir el modal -->
                     <button type="button" class="btn btn-dark gradient-custom" data-bs-toggle="modal"
                         data-bs-target="#myModal">
                         <i class="bi bi-plus-square-fill"></i>
