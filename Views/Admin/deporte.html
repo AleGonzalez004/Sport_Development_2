@@ -49,48 +49,45 @@
                 </div>
             </form>
 
-                <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="createModalLabel">Agregar Deporte</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+            <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="createModalLabel">Agregar Deporte</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="sportName" class="form-label">Nombre del Deporte</label>
+                                <input type="text" class="form-control" id="sportName"
+                                    placeholder="Ingrese el nombre del deporte">
                             </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="sportName" class="form-label">Nombre del Deporte</label>
-                                    <input type="text" class="form-control" id="sportName"
-                                        placeholder="Ingrese el nombre del deporte">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Tabla para mostrar los registros existentes -->
-            <table class="table table-hover">
-                <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
-                <thead>
-                    <tr>
-                        <td colspan="2" id="rowsFound"></td>
-                    </tr>
-                    <tr class="text-center">
-                        <th>Nombre del deporte</th>
-                        <th>ACCIONES</th>
-                    </tr>
-                </thead>
-                <!-- Cuerpo de la tabla para mostrar un registro por fila -->
-                <tbody id="tableBody"></tbody>
-            </table>
-
-            <!-- Componente Modal para guardar un registro -->
+        <!-- Tabla para mostrar los registros existentes -->
+        <table class="table table-hover">
+            <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+            <thead>
+                <tr>
+                    <td colspan="2" id="rowsFound"></td>
+                </tr>
+                <tr class="text-center">
+                    <th>Nombre del deporte</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+            <tbody id="tableBody"></tbody>
+        </table>
 
     </main>
 

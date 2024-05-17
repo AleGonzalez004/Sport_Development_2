@@ -50,52 +50,50 @@
             </form>
 
 
-                <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="createModalLabel">Agregar Imagen</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+            <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="createModalLabel">Agregar Imagen</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="imageFile" class="form-label">Seleccionar Imagen</label>
+                                <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
+                                    maxsize="100000000" onchange="validateAndPreviewImage(this)">
                             </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="imageFile" class="form-label">Seleccionar Imagen</label>
-                                    <input type="file" class="form-control" id="imageFile"
-                                        accept="image/png, image/jpeg" maxsize="100000000"
-                                        onchange="validateAndPreviewImage(this)">
-                                </div>
-                                <div class="mb-3">
-                                    <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
-                                        style="display: none;">
-                                </div>
+                            <div class="mb-3">
+                                <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
+                                    style="display: none;">
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <script>
-                function validateAndPreviewImage(input) {
-                    var file = input.files[0];
-                    var maxSize = 100 * 1024 * 1024; // 100 MB
+        <script>
+            function validateAndPreviewImage(input) {
+                var file = input.files[0];
+                var maxSize = 100 * 1024 * 1024; // 100 MB
 
-                    if (file && (file.type === 'image/png' || file.type === 'image/jpeg') && file.size <= maxSize) {
-                        var previewImage = document.getElementById('previewImage');
-                        previewImage.src = URL.createObjectURL(file);
-                        previewImage.style.display = 'block';
-                    } else {
-                        alert('Por favor, seleccione una imagen en formato PNG o JPEG de 100 MB o menos.');
-                        input.value = '';
-                        document.getElementById('previewImage').style.display = 'none';
-                    }
+                if (file && (file.type === 'image/png' || file.type === 'image/jpeg') && file.size <= maxSize) {
+                    var previewImage = document.getElementById('previewImage');
+                    previewImage.src = URL.createObjectURL(file);
+                    previewImage.style.display = 'block';
+                } else {
+                    alert('Por favor, seleccione una imagen en formato PNG o JPEG de 100 MB o menos.');
+                    input.value = '';
+                    document.getElementById('previewImage').style.display = 'none';
                 }
-            </script>
+            }
+        </script>
         </div>
 
         <!-- Tabla para mostrar los registros existentes -->
