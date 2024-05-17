@@ -39,7 +39,7 @@ function MenuIndex() {
                     <a class="nav-link  text-white px-4" href="#" onclick="Productos()"><i class="bi bi-box-seam-fill"></i> Productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white px-4" href="#" onclick="Graficos()"><i class="bi bi-pie-chart-fill"></i> Graficos</a>
+                    <a class="nav-link  text-white px-4" href="#" onclick="Pedidos()"><i class="bi bi-pie-chart-fill"></i> Pedidos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  text-white px-4" href="#" onclick="Comentarios()"><i class="bi bi-chat-left-text-fill"></i>
@@ -125,8 +125,8 @@ function Administradores() {
 function Productos() {
     window.location.href = "/Views/Admin/producto.html";
 }
-function Graficos() {
-    window.location.href = "/Views/Admin/grafico.html";
+function Pedidos() {
+    window.location.href = "/Views/Admin/pedido.html";
 }
 function Comentarios() {
     window.location.href = "/Views/Admin/comentario.html";
