@@ -1,19 +1,19 @@
 <?php
-// Se incluye la clase del modelo.
-require_once('/Api/Models/Data/administrador_data.php');
 
-// Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
+require_once('../../Models/Data/administrador_data.php');
+
+
 if (isset($_GET['action'])) {
-    // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
+    
     session_start();
-    // Se instancia la clase correspondiente.
+    
     $administrador = new AdministradorData;
-    // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
+    
     $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'username' => null);
-    // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
-    if (isset($_SESSION['idAdminr'])) {
+    
+    if (isset($_SESSION['idAdmin'])) {
         $result['session'] = 1;
-        // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
+        
         switch ($_GET['action']) {
             case 'searchRows':
                 if (!Validator::validateSearch($_POST['search'])) {
@@ -64,10 +64,11 @@ if (isset($_GET['action'])) {
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$administrador->setId($_POST['idAdmin']) or
                     !$administrador->setNombre($_POST['nombreAdmin']) or
                     !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin'])
+                    !$administrador->setCorreo($_POST['correoAdmin']) or
+                    !$administrador->setUsuario($_POST['usuarioAdmin']) or
+                    !$administrador->setClave($_POST['claveAdmin'])
                 ) {
                     $result['error'] = $administrador->getDataError();
                 } elseif ($administrador->updateRow()) {
@@ -190,11 +191,11 @@ if (isset($_GET['action'])) {
                 $result['error'] = 'Acción no disponible fuera de la sesión';
         }
     }
-    // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
+
     $result['exception'] = Database::getException();
-    // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
+
     header('Content-type: application/json; charset=utf-8');
-    // Se imprime el resultado en formato JSON y se retorna al controlador.
+
     print(json_encode($result));
 } else {
     print(json_encode('Recurso no disponible'));
