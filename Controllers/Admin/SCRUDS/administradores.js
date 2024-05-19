@@ -1,3 +1,4 @@
+
 // Constante para completar la ruta de la API.
 const ADMINISTRADOR_API = '../../Services/administradores.php';
 // Constante para establecer el formulario de buscar.
