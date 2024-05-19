@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Inicio de Sesión | Sport Dev</title>
     <!--- CSS de Bootstrap --->
-    <link rel="stylesheet" href="/Resources/CSS/Bootstrap CSS/bootstrap.css">
+    <link rel="stylesheet" href="../../Resources/CSS/Bootstrap CSS/bootstrap.css">
 
-    <link rel="stylesheet" href="/Resources/CSS/Publico/crear_cuenta.css">
+    <link rel="stylesheet" href="../../Resources/CSS/Publico/index.css">
     <!-- Iconos de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Icono de la pagina -->
-    <link rel="icon" type="image/x-icon" href="/Resources/Images/logo.png">
+    <link rel="icon" type="image/x-icon" href="../../Resources/Images/logo.png">
 
     <!--Google Fonts (Para ponerle otros fuentes de texto.)-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,8 +26,8 @@
     <header>
         <div class="container-fluid text-bg-primary py-4 text-center"
             style="background: linear-gradient(to bottom, #245C9D, #4092CE); margin: 0; display: flex; justify-content: center; align-items: center;">
-            <img src="/Resources/Images/poligono_add.png">
-            <h1 class="px-3"> ADMINISTRADOR</h1><img src="/Resources/Images/poligono_adi.png">
+            <img src="../../Resources/Images/poligono_add.png" class="mx-auto d-block" height="50" width="50">
+            <h1 class="px-3"> ADMINISTRADOR</h1><img src="../../Resources/Images/poligono_adi.png" class="mx-auto d-block" height="50" width="50">
         </div>
     </header>
 
@@ -35,6 +35,8 @@
 
     <main>
         <!-- Formulario para ingresar a la tienda en linea. -->
+        <h3 id="mainTitle"></h3>
+
         <form class="d-none" id="signupForm">
             <div class="row g-3">
                 <div class="col-sm-12 col-md-6">
@@ -69,32 +71,17 @@
         </form>
         <!-- Formulario para ingresar a la tienda en linea. -->
         <form class="d-none" id="loginForm">
-            <div class="container p-4 col-10 col-sm-10 col-md-8 col-xl-5 m-auto mt-6">
-                <div class="p-4 card text-center mt-5 mx-auto" style="background-color: #245C9D;">
-                    <h3 class="text-white">Iniciar Sesion</h3>
-                    <div class="row">
-                        <div class="p-1 mt-5">
-                            <h5 class="text-white text-start">Ingrese su correo:</h5>
-                            <label for="correo" class="form-label"> </label>
-                            <input placeholder="Correo:" type="email" id="correo" name="correo" class="form-control"
-                                required>
-                        </div>
-                        <div class="text-white p-1 mt-5">
-                            <h5 class="text-white text-start">Ingrese su contraseña:</h5>
-                            <label for="clave" class="form-label"></label>
-                            <input placeholder="Contraseña:" type="password" id="clave" name="clave"
-                                class="form-control" required>
-                            <div class="container p-1 mt-5">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <a href="/Views/Admin/inicio.html" type="submit" class="btn btn-light mt-4"
-                                            style="color: #245C9D;">Iniciar Sesion</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+            <div class="row g-3">
+                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input id="usuario" type="text" name="usuario" class="form-control" required>
+                </div>
+                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                    <label for="clave" class="form-label">Contraseña</label>
+                    <input id="clave" type="password" name="clave" class="form-control" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Ingresar</button>
                 </div>
             </div>
         </form>
@@ -113,8 +100,12 @@
 
     <!-- Scripts -->
     <!-- JS de Bootstrap -->
-    <script src="/Resources/JavaScript/Bootstrap JS/bootstrap.bundle.js"></script>
-    <script type="text/javascript" src="/Controllers/Utils/admin.js"></script>
+    <script src="../../Resources/JavaScript/Bootstrap JS/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="../../Resources/JavaScript/Bootstrap JS/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="../../Resources/JavaScript/Libraries/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../Controllers/Utils/administrador.js"></script>
+    <script type="text/javascript" src="../../Controllers/Admin/Login/index.js"></script>
+    <script type="text/javascript" src="../../Controllers/Utils/componentes.js"></script>
 </body>
 
 </html>

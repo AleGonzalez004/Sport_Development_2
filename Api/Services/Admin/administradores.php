@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../Models/Data/administrador_data.php');
+require_once('../../Models/Data/administradores_data.php');
 
 
 if (isset($_GET['action'])) {

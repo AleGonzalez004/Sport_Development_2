@@ -2,7 +2,7 @@
 
 require_once('../../Helpers/validator.php');
 
-require_once('../../Models/Handler/administrador_handler.php');
+require_once('../../Models/Handler/administradores_handler.php');
 
 class AdministradorData extends AdministradorHandler
 {

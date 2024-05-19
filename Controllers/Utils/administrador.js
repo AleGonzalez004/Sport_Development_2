@@ -4,14 +4,14 @@
 */
 
 // Constante para completar la ruta de la API.
-const USER_API = 'services/admin/administrador.php';
+const USER_API = '../../Services/Admin/administradores.php';
 // Constante para establecer el elemento del contenido principal.
 const MAIN = document.querySelector('main');
 MAIN.style.paddingTop = '75px';
 MAIN.style.paddingBottom = '100px';
 MAIN.classList.add('container');
 // Se establece el título de la página web.
-document.querySelector('title').textContent = 'CoffeeShop - Dashboard';
+document.querySelector('title').textContent = 'Sport Development - Pagina de inicio';
 // Constante para establecer el elemento del título principal.
 const MAIN_TITLE = document.getElementById('mainTitle');
 MAIN_TITLE.classList.add('text-center', 'py-3');
