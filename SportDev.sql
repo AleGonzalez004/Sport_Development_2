@@ -21,7 +21,8 @@ CREATE TABLE tb_clientes (
  
  CREATE TABLE tb_favoritos (
     id_favoritos INT PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50) NOT NULL
+    id_cliente INT,
+    id_detalle_producto INT
 );
 
 CREATE TABLE tb_colores (
@@ -62,6 +63,7 @@ CREATE TABLE tb_detalles_productos (
     id_detalle_producto INT PRIMARY KEY NOT NULL,
     id_producto INT,
     existencias INT NOT NULL CHECK(existencias >= 0),
+    id_color INT,
     id_talla INT
 );
  
