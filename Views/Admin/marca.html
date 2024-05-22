@@ -48,8 +48,8 @@
                     </div>
                 </div>
             </form>
-
-
+    
+            <!-- Modal para crear una nueva marca -->
             <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
@@ -59,30 +59,28 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="brandName" class="form-label">Nombre de la Marca</label>
-                                <input type="text" class="form-control" id="brandName"
-                                    placeholder="Ingrese la marca">
-                            </div>
-                            <div class="mb-3">
-                                <label for="imageFile" class="form-label">Seleccionar Imagen</label>
-                                <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
-                                    maxsize="100000000" onchange="validateAndPreviewImage(this)">
-                            </div>
-                            <div class="mb-3">
-                                <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
-                                    style="display: none;">
-                            </div>
+                            <form id="saveForm">
+                                <div class="mb-3">
+                                    <label for="nombreMarca" class="form-label">Nombre de la Marca</label>
+                                    <input type="text" class="form-control" id="nombreMarca" name="nombreMarca"
+                                        placeholder="Ingrese la marca" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imagenMarca" class="form-label">Seleccionar Imagen</label>
+                                    <input type="text" class="form-control" id="imagenMarca" name="imagenMarca"
+                                        placeholder="Ingrese la URL de la imagen" required>
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary" form="saveForm">Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    
         <!-- Tabla para mostrar los registros existentes -->
         <table class="table table-hover">
             <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
@@ -92,13 +90,14 @@
                 </tr>
                 <tr class="text-center">
                     <th>Nombre de la Marca</th>
+                    <th>Imagen</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <!-- Cuerpo de la tabla para mostrar un registro por fila -->
             <tbody id="tableBody"></tbody>
         </table>
-
+    
         <!-- Componente Modal para guardar un registro -->
         <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="modalTitle" aria-hidden="true">
@@ -117,7 +116,10 @@
                                 <label for="nombreMarca" class="form-label">Nombre</label>
                                 <input id="nombreMarca" type="text" name="nombreMarca" class="form-control" required>
                             </div>
-                           
+                            <div class="col-sm-12 col-md-6">
+                                <label for="imagenMarca" class="form-label">Imagen</label>
+                                <input id="imagenMarca" type="text" name="imagenMarca" class="form-control" required>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Guardar</button>

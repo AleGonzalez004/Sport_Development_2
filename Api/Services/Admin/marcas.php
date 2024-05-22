@@ -7,18 +7,18 @@ if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
     // Se instancia la clase correspondiente.
-    $administrador = new AdministradorData;
+    $marcas = new MarcasData;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'username' => null);
+    $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
-    if (isset($_SESSION['idAdminr'])) {
+    if (isset($_SESSION['idAdmin'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
-                } elseif ($result['dataset'] = $administrador->searchRows()) {
+                } elseif ($result['dataset'] = $marcas->searchRows()) {
                     $result['status'] = 1;
                     $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
                 } else {
@@ -27,121 +27,57 @@ if (isset($_GET['action'])) {
                 break;
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
-                if (
-                    !$administrador->setNombre($_POST['nombreAdmin']) or
-                    !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin']) or
-                    !$administrador->setUsuario($_POST['usuarioAdmin']) or
-                    !$administrador->setClave($_POST['claveAdmin'])
-                ) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($_POST['claveAdmin'] != $_POST['confirmarClave']) {
-                    $result['error'] = 'Contraseñas diferentes.';
-                } elseif ($administrador->createRow()) {
+                if (!$marcas->setNombre($_POST['nombreMarca'])) {
+                    $result['error'] = $marcas->getDataError();
+                } elseif (!$marcas->setImagen($_POST['imagenMarca'])) {
+                    $result['error'] = $marcas->getDataError();
+                } elseif ($marcas->createRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Administrador creado correctamente.';
+                    $result['message'] = 'Marca creada correctamente.';
                 } else {
-                    $result['error'] = 'Ocurrió un problema al crear el administrador.';
+                    $result['error'] = 'Ocurrió un problema al crear la marca.';
                 }
                 break;
             case 'readAll':
-                if ($result['dataset'] = $administrador->readAll()) {
+                if ($result['dataset'] = $marcas->readAll()) {
                     $result['status'] = 1;
                     $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
                 } else {
-                    $result['error'] = 'No existen administradores registrados.';
+                    $result['error'] = 'No existen marcas registradas.';
                 }
                 break;
             case 'readOne':
-                if (!$administrador->setId($_POST['idAdmin'])) {
-                    $result['error'] = 'Administrador incorrecto.';
-                } elseif ($result['dataset'] = $administrador->readOne()) {
+                if (!$marcas->setId($_POST['idMarca'])) {
+                    $result['error'] = $marcas->getDataError();
+                } elseif ($result['dataset'] = $marcas->readOne()) {
                     $result['status'] = 1;
                 } else {
-                    $result['error'] = 'Administrador inexistente.';
+                    $result['error'] = 'Marca inexistente.';
                 }
                 break;
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
-                if (
-                    !$administrador->setId($_POST['idAdmin']) or
-                    !$administrador->setNombre($_POST['nombreAdmin']) or
-                    !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin'])
-                ) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($administrador->updateRow()) {
+                if (!$marcas->setId($_POST['idMarca'])) {
+                    $result['error'] = $marcas->getDataError();
+                } elseif (!$marcas->setNombre($_POST['nombreMarca'])) {
+                    $result['error'] = $marcas->getDataError();
+                } elseif (!$marcas->setImagen($_POST['imagenMarca'])) {
+                    $result['error'] = $marcas->getDataError();
+                } elseif ($marcas->updateRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Administrador modificado correctamente.';
+                    $result['message'] = 'Marca modificada correctamente.';
                 } else {
-                    $result['error'] = 'Ocurrió un problema al modificar el administrador.';
+                    $result['error'] = 'Ocurrió un problema al modificar la marca.';
                 }
                 break;
             case 'deleteRow':
-                if ($_POST['idAdmin'] == $_SESSION['idAdmin']) {
-                    $result['error'] = 'No se puede eliminar a sí mismo';
-                } elseif (!$administrador->setId($_POST['idAdmin'])) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($administrador->deleteRow()) {
+                if (!$marcas->setId($_POST['idMarca'])) {
+                    $result['error'] = $marcas->getDataError();
+                } elseif ($marcas->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Administrador eliminado correctamente';
+                    $result['message'] = 'Marca eliminada correctamente';
                 } else {
-                    $result['error'] = 'Ocurrió un problema al eliminar el administrador';
-                }
-                break;
-            case 'getUser':
-                if (isset($_SESSION['usuarioAdmin'])) {
-                    $result['status'] = 1;
-                    $result['username'] = $_SESSION['usuarioAdmin'];
-                } else {
-                    $result['error'] = 'Usuario de administrador indefinido';
-                }
-                break;
-            case 'logOut':
-                if (session_destroy()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Sesión eliminada correctamente';
-                } else {
-                    $result['error'] = 'Ocurrió un problema al cerrar la sesión';
-                }
-                break;
-            case 'readProfile':
-                if ($result['dataset'] = $administrador->readProfile()) {
-                    $result['status'] = 1;
-                } else {
-                    $result['error'] = 'Ocurrió un problema al leer el perfil';
-                }
-                break;
-            case 'editProfile':
-                $_POST = Validator::validateForm($_POST);
-                if (
-                    !$administrador->setNombre($_POST['nombreAdmin']) or
-                    !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin']) or
-                    !$administrador->setUsuario($_POST['usuarioAdmin'])
-                ) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($administrador->editProfile()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Perfil modificado correctamente';
-                    $_SESSION['usuarioAdmin'] = $_POST['usuarioAdmin'];
-                } else {
-                    $result['error'] = 'Ocurrió un problema al modificar el perfil.';
-                }
-                break;
-            case 'changePassword':
-                $_POST = Validator::validateForm($_POST);
-                if (!$administrador->checkPassword($_POST['claveActual'])) {
-                    $result['error'] = 'Contraseña actual incorrecta.';
-                } elseif ($_POST['claveNueva'] != $_POST['confirmarClave']) {
-                    $result['error'] = 'Confirmación de contraseña diferente.';
-                } elseif (!$administrador->setClave($_POST['claveNueva'])) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($administrador->changePassword()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Contraseña cambiada correctamente.';
-                } else {
-                    $result['error'] = 'Ocurrió un problema al cambiar la contraseña.';
+                    $result['error'] = 'Ocurrió un problema al eliminar la marca';
                 }
                 break;
             default:
@@ -150,40 +86,12 @@ if (isset($_GET['action'])) {
     } else {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
         switch ($_GET['action']) {
-            case 'readUsers':
-                if ($administrador->readAll()) {
+            case 'readRows':
+                if ($marcas->readAll()) {
                     $result['status'] = 1;
                     $result['message'] = 'Debe autenticarse para ingresar.';
                 } else {
-                    $result['error'] = 'Debe crear un administrador para comenzar.';
-                }
-                break;
-            case 'signUp':
-                $_POST = Validator::validateForm($_POST);
-                if (
-                    !$administrador->setNombre($_POST['nombreAdmin']) or
-                    !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin']) or
-                    !$administrador->setUsuario($_POST['usuarioAdmin']) or
-                    !$administrador->setClave($_POST['claveAdmin'])
-                ) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($_POST['claveAdmin'] != $_POST['confirmarClave']) {
-                    $result['error'] = 'Contraseñas diferentes';
-                } elseif ($administrador->createRow()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Administrador registrado correctamente.';
-                } else {
-                    $result['error'] = 'Ocurrió un problema al registrar el administrador.';
-                }
-                break;
-            case 'logIn':
-                $_POST = Validator::validateForm($_POST);
-                if ($administrador->checkUser($_POST['usuario'], $_POST['clave'])) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Autenticación correcta.';
-                } else {
-                    $result['error'] = 'Credenciales incorrectas.';
+                    $result['error'] = 'Debe crear una marca para comenzar.';
                 }
                 break;
             default:

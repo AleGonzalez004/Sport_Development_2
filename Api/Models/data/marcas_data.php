@@ -1,12 +1,12 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
 require_once('/Api/Helpers/validator.php');
-// Se incluye la clase padre.s
+// Se incluye la clase padre.
 require_once('/Api/Models/Handler/marcas_handler.php');
 /*
- *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
+ *  Clase para manejar el encapsulamiento de los datos de la tabla tb_marcas.
  */
-class AdministradorData extends AdministradorHandler
+class MarcasData extends MarcasHandler
 {
     // Atributo genérico para manejo de errores.
     private $data_error = null;
@@ -20,7 +20,7 @@ class AdministradorData extends AdministradorHandler
             $this->id = $value;
             return true;
         } else {
-            $this->data_error = 'El identificador del administrador es incorrecto.';
+            $this->data_error = 'El identificador de la marca es incorrecto.';
             return false;
         }
     }
@@ -28,66 +28,24 @@ class AdministradorData extends AdministradorHandler
     public function setNombre($value, $min = 2, $max = 50)
     {
         if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'El nombre debe ser un valor alfabético';
+            $this->data_error = 'El nombre de la marca debe ser un valor alfabético';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
             $this->nombre = $value;
             return true;
         } else {
-            $this->data_error = 'El nombre debe tener una longitud entre ' . $min . ' y ' . $max;
+            $this->data_error = 'El nombre de la marca debe tener una longitud entre ' . $min . ' y ' . $max;
             return false;
         }
     }
 
-    public function setApellido($value, $min = 2, $max = 50)
+    public function setImagen($value, $min = 0, $max = 255)
     {
-        if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'El apellido debe ser un valor alfabético';
-            return false;
-        } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->apellido = $value;
+        if (Validator::validateLength($value, $min, $max)) {
+            $this->imagen = $value;
             return true;
         } else {
-            $this->data_error = 'El apellido debe tener una longitud entre ' . $min . ' y ' . $max;
-            return false;
-        }
-    }
-
-    public function setCorreo($value, $min = 8, $max = 100)
-    {
-        if (!Validator::validateEmail($value)) {
-            $this->data_error = 'El correo no es válido.';
-            return false;
-        } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->correo = $value;
-            return true;
-        } else {
-            $this->data_error = 'El correo debe tener una longitud entre ' . $min . ' y ' . $max;
-            return false;
-        }
-    }
-
-    public function setUsuario($value, $min = 6, $max = 25)
-    {
-        if (!Validator::validateAlphanumeric($value)) {
-            $this->data_error = 'El usuario debe ser un valor alfanumérico.';
-            return false;
-        } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->usuario = $value;
-            return true;
-        } else {
-            $this->data_error = 'El usuario debe tener una longitud entre ' . $min . ' y ' . $max;
-            return false;
-        }
-    }
-
-    public function setClave($value)
-    {
-        if (Validator::validatePassword($value)) {
-            $this->clave = password_hash($value, PASSWORD_DEFAULT);
-            return true;
-        } else {
-            $this->data_error = Validator::getPasswordError();
+            $this->data_error = 'El campo imagen debe tener una longitud entre ' . $min . ' y ' . $max;
             return false;
         }
     }
