@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once('/Api/Models/Data/categorias_data.php');
+require_once('../../models/data/categoria_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -9,9 +9,10 @@ if (isset($_GET['action'])) {
     // Se instancia la clase correspondiente.
     $categoria = new CategoriaData;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'fileStatus' => null);
+    $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'username' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
     if (isset($_SESSION['idAdministrador'])) {
+        $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':
@@ -27,7 +28,8 @@ if (isset($_GET['action'])) {
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$categoria->setNombre($_POST['nombreCategoria'])
+                    !$categoria->setNombre($_POST['nombreCategoria']) or
+                    !$categoria->setDescripcion($_POST['descripcionCategoria'])
                 ) {
                     $result['error'] = $categoria->getDataError();
                 } elseif ($categoria->createRow()) {
@@ -47,7 +49,7 @@ if (isset($_GET['action'])) {
                 break;
             case 'readOne':
                 if (!$categoria->setId($_POST['idCategoria'])) {
-                    $result['error'] = $categoria->getDataError();
+                    $result['error'] = 'Categoría incorrecta';
                 } elseif ($result['dataset'] = $categoria->readOne()) {
                     $result['status'] = 1;
                 } else {
@@ -58,7 +60,8 @@ if (isset($_GET['action'])) {
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$categoria->setId($_POST['idCategoria']) or
-                    !$categoria->setNombre($_POST['nombreCategoria'])
+                    !$categoria->setNombre($_POST['nombreCategoria']) or
+                    !$categoria->setDescripcion($_POST['descripcionCategoria'])
                 ) {
                     $result['error'] = $categoria->getDataError();
                 } elseif ($categoria->updateRow()) {
@@ -69,15 +72,11 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'deleteRow':
-                if (
-                    !$categoria->setId($_POST['idCategoria'])
-                ) {
+                if (!$categoria->setId($_POST['idCategoria'])) {
                     $result['error'] = $categoria->getDataError();
                 } elseif ($categoria->deleteRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Categoría eliminada correctamente';
-                    // Se asigna el estado del archivo después de eliminar.
-                    $result['fileStatus'] = Validator::deleteFile($categoria::RUTA_IMAGEN, $categoria->getFilename());
                 } else {
                     $result['error'] = 'Ocurrió un problema al eliminar la categoría';
                 }
@@ -85,15 +84,24 @@ if (isset($_GET['action'])) {
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }
-        // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
-        $result['exception'] = Database::getException();
-        // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
-        header('Content-type: application/json; charset=utf-8');
-        // Se imprime el resultado en formato JSON y se retorna al controlador.
-        print(json_encode($result));
     } else {
-        print(json_encode('Acceso denegado'));
+        // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
+        switch ($_GET['action']) {
+            case 'readCategories':
+                if ($result['dataset'] = $categoria->readAll()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Debe autenticarse para ingresar';
+                } else {
+                    $result['error'] = 'Debe crear una categoría para comenzar';
+                }
+                break;
+            default:
+                $result['error'] = 'Acción no disponible fuera de la sesión';
+        }
     }
-} else {
-    print(json_encode('Recurso no disponible'));
+    // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
+    $result['exception'] = Database::getException();
+    // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
+    header('Content-type: application/json; charset=utf-8');
+    // Se imprime
 }
