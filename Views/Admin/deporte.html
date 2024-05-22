@@ -41,47 +41,50 @@
                         <button type="reset" class="btn btn-dark gradient-custom" onclick="fillTable()">
                             <i class="bi bi-x-square-fill"></i>
                         </button>
-                        <button type="button" class="btn btn-dark gradient-custom" data-bs-toggle="modal"
-                            data-bs-target="#createModal">
+                        <button type="button" class="btn btn-dark gradient-custom" id="createButton">
                             <i class="bi bi-plus-square-fill"></i>
                         </button>
                     </div>
                 </div>
             </form>
-
+    
+            <!-- Modal para crear y editar deportes -->
             <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="createModalLabel">Agregar Deporte</h5>
+                            <h5 class="modal-title" id="modalTitle">Agregar Deporte</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="sportName" class="form-label">Nombre del Deporte</label>
-                                <input type="text" class="form-control" id="sportName"
-                                    placeholder="Ingrese un deporte">
-                            </div>
-                            <div class="mb-3">
-                                <label for="imageFile" class="form-label">Seleccionar Imagen</label>
-                                <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
-                                    maxsize="100000000" onchange="validateAndPreviewImage(this)">
-                            </div>
-                            <div class="mb-3">
-                                <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
-                                    style="display: none;">
-                            </div>
+                            <form id="saveForm">
+                                <input type="hidden" id="idDeporte">
+                                <div class="mb-3">
+                                    <label for="sportName" class="form-label">Nombre del Deporte</label>
+                                    <input type="text" class="form-control" id="sportName" placeholder="Ingrese un deporte"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imageFile" class="form-label">Seleccionar Imagen</label>
+                                    <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
+                                        maxsize="100000000" onchange="validateAndPreviewImage(this)">
+                                </div>
+                                <div class="mb-3">
+                                    <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
+                                        style="display: none;">
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="submit" form="saveForm" class="btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    
         <!-- Tabla para mostrar los registros existentes -->
         <table class="table table-hover">
             <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
@@ -97,8 +100,8 @@
             <!-- Cuerpo de la tabla para mostrar un registro por fila -->
             <tbody id="tableBody"></tbody>
         </table>
-
     </main>
+    
 
     <div class="py-5"></div>
     <div class="py-5"></div>

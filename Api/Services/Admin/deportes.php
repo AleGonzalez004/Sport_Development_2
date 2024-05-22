@@ -7,18 +7,18 @@ if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
     // Se instancia la clase correspondiente.
-    $administrador = new AdministradorData;
+    $deporte = new DeportesData;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'username' => null);
-    // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
-    if (isset($_SESSION['idAdminr'])) {
+    $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null);
+    // Se verifica si existe una sesión iniciada, de lo contrario se finaliza el script con un mensaje de error.
+    if (isset($_SESSION['idUsuario'])) {
         $result['session'] = 1;
-        // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
+        // Se compara la acción a realizar cuando un usuario ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
-                } elseif ($result['dataset'] = $administrador->searchRows()) {
+                } elseif ($result['dataset'] = $deporte->searchRows()) {
                     $result['status'] = 1;
                     $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
                 } else {
@@ -28,162 +28,71 @@ if (isset($_GET['action'])) {
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$administrador->setNombre($_POST['nombreAdmin']) or
-                    !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin']) or
-                    !$administrador->setUsuario($_POST['usuarioAdmin']) or
-                    !$administrador->setClave($_POST['claveAdmin'])
+                    !$deporte->setNombre($_POST['sportName']) or
+                    !$deporte->setImagen($_FILES['imageFile'])
                 ) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($_POST['claveAdmin'] != $_POST['confirmarClave']) {
-                    $result['error'] = 'Contraseñas diferentes.';
-                } elseif ($administrador->createRow()) {
+                    $result['error'] = $deporte->getDataError();
+                } elseif ($deporte->createRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Administrador creado correctamente.';
+                    $result['message'] = 'Deporte creado correctamente.';
                 } else {
-                    $result['error'] = 'Ocurrió un problema al crear el administrador.';
+                    $result['error'] = 'Ocurrió un problema al crear el deporte.';
                 }
                 break;
             case 'readAll':
-                if ($result['dataset'] = $administrador->readAll()) {
+                if ($result['dataset'] = $deporte->readAll()) {
                     $result['status'] = 1;
                     $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
                 } else {
-                    $result['error'] = 'No existen administradores registrados.';
+                    $result['error'] = 'No existen deportes registrados.';
                 }
                 break;
             case 'readOne':
-                if (!$administrador->setId($_POST['idAdmin'])) {
-                    $result['error'] = 'Administrador incorrecto.';
-                } elseif ($result['dataset'] = $administrador->readOne()) {
+                if (!$deporte->setId($_POST['idDeporte'])) {
+                    $result['error'] = 'Deporte incorrecto.';
+                } elseif ($result['dataset'] = $deporte->readOne()) {
                     $result['status'] = 1;
                 } else {
-                    $result['error'] = 'Administrador inexistente.';
+                    $result['error'] = 'Deporte inexistente.';
                 }
                 break;
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$administrador->setId($_POST['idAdmin']) or
-                    !$administrador->setNombre($_POST['nombreAdmin']) or
-                    !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin'])
+                    !$deporte->setId($_POST['idDeporte']) or
+                    !$deporte->setNombre($_POST['sportName']) or
+                    !$deporte->setImagen($_FILES['imageFile'])
                 ) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($administrador->updateRow()) {
+                    $result['error'] = $deporte->getDataError();
+                } elseif ($deporte->updateRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Administrador modificado correctamente.';
+                    $result['message'] = 'Deporte modificado correctamente.';
                 } else {
-                    $result['error'] = 'Ocurrió un problema al modificar el administrador.';
+                    $result['error'] = 'Ocurrió un problema al modificar el deporte.';
                 }
                 break;
             case 'deleteRow':
-                if ($_POST['idAdmin'] == $_SESSION['idAdmin']) {
-                    $result['error'] = 'No se puede eliminar a sí mismo';
-                } elseif (!$administrador->setId($_POST['idAdmin'])) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($administrador->deleteRow()) {
+                if (!$deporte->setId($_POST['idDeporte'])) {
+                    $result['error'] = $deporte->getDataError();
+                } elseif ($deporte->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Administrador eliminado correctamente';
+                    $result['message'] = 'Deporte eliminado correctamente';
                 } else {
-                    $result['error'] = 'Ocurrió un problema al eliminar el administrador';
-                }
-                break;
-            case 'getUser':
-                if (isset($_SESSION['usuarioAdmin'])) {
-                    $result['status'] = 1;
-                    $result['username'] = $_SESSION['usuarioAdmin'];
-                } else {
-                    $result['error'] = 'Usuario de administrador indefinido';
-                }
-                break;
-            case 'logOut':
-                if (session_destroy()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Sesión eliminada correctamente';
-                } else {
-                    $result['error'] = 'Ocurrió un problema al cerrar la sesión';
-                }
-                break;
-            case 'readProfile':
-                if ($result['dataset'] = $administrador->readProfile()) {
-                    $result['status'] = 1;
-                } else {
-                    $result['error'] = 'Ocurrió un problema al leer el perfil';
-                }
-                break;
-            case 'editProfile':
-                $_POST = Validator::validateForm($_POST);
-                if (
-                    !$administrador->setNombre($_POST['nombreAdmin']) or
-                    !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin']) or
-                    !$administrador->setUsuario($_POST['usuarioAdmin'])
-                ) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($administrador->editProfile()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Perfil modificado correctamente';
-                    $_SESSION['usuarioAdmin'] = $_POST['usuarioAdmin'];
-                } else {
-                    $result['error'] = 'Ocurrió un problema al modificar el perfil.';
-                }
-                break;
-            case 'changePassword':
-                $_POST = Validator::validateForm($_POST);
-                if (!$administrador->checkPassword($_POST['claveActual'])) {
-                    $result['error'] = 'Contraseña actual incorrecta.';
-                } elseif ($_POST['claveNueva'] != $_POST['confirmarClave']) {
-                    $result['error'] = 'Confirmación de contraseña diferente.';
-                } elseif (!$administrador->setClave($_POST['claveNueva'])) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($administrador->changePassword()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Contraseña cambiada correctamente.';
-                } else {
-                    $result['error'] = 'Ocurrió un problema al cambiar la contraseña.';
+                    $result['error'] = 'Ocurrió un problema al eliminar el deporte';
                 }
                 break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión.';
         }
     } else {
-        // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
+        // Se compara la acción a realizar cuando el usuario no ha iniciado sesión.
         switch ($_GET['action']) {
-            case 'readUsers':
-                if ($administrador->readAll()) {
+            case 'readAll':
+                if ($deporte->readAll()) {
                     $result['status'] = 1;
                     $result['message'] = 'Debe autenticarse para ingresar.';
                 } else {
-                    $result['error'] = 'Debe crear un administrador para comenzar.';
-                }
-                break;
-            case 'signUp':
-                $_POST = Validator::validateForm($_POST);
-                if (
-                    !$administrador->setNombre($_POST['nombreAdmin']) or
-                    !$administrador->setApellido($_POST['apellidoAdmin']) or
-                    !$administrador->setCorreo($_POST['correoAdmin']) or
-                    !$administrador->setUsuario($_POST['usuarioAdmin']) or
-                    !$administrador->setClave($_POST['claveAdmin'])
-                ) {
-                    $result['error'] = $administrador->getDataError();
-                } elseif ($_POST['claveAdmin'] != $_POST['confirmarClave']) {
-                    $result['error'] = 'Contraseñas diferentes';
-                } elseif ($administrador->createRow()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Administrador registrado correctamente.';
-                } else {
-                    $result['error'] = 'Ocurrió un problema al registrar el administrador.';
-                }
-                break;
-            case 'logIn':
-                $_POST = Validator::validateForm($_POST);
-                if ($administrador->checkUser($_POST['usuario'], $_POST['clave'])) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Autenticación correcta.';
-                } else {
-                    $result['error'] = 'Credenciales incorrectas.';
+                    $result['error'] = 'No existen deportes registrados.';
                 }
                 break;
             default:
@@ -199,3 +108,4 @@ if (isset($_GET['action'])) {
 } else {
     print(json_encode('Recurso no disponible'));
 }
+
