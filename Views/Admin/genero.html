@@ -27,7 +27,7 @@
 
 
     <main class="container" style="padding-top: 75px; padding-bottom: 100px;">
-        <h3 id="mainTitle">Administrar Generos</h3>
+        <h3 id="mainTitle">Administrar Géneros</h3>
         <div class="row">
             <!-- Formulario de búsqueda -->
             <form class="col-sm-12 col-md-6" id="searchForm">
@@ -49,8 +49,8 @@
                     </div>
                 </div>
             </form>
-
-
+    
+            <!-- Modal para crear un género -->
             <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
@@ -63,34 +63,34 @@
                             <div class="mb-3">
                                 <label for="genreName" class="form-label">Nombre del Género</label>
                                 <input type="text" class="form-control" id="genreName"
-                                    placeholder="Ingrese el género">
+                                    placeholder="Ingrese el género" required>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-primary" onclick="createGenre()">Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    
         <!-- Tabla para mostrar los registros existentes -->
         <table class="table table-hover">
             <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
             <thead>
                 <tr>
-                    <td colspan="3" id="rowsFound"></td>
+                    <td colspan="2" id="rowsFound"></td>
                 </tr>
                 <tr class="text-center">
-                    <th>Nombre del Genero</th>
+                    <th>Nombre del Género</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <!-- Cuerpo de la tabla para mostrar un registro por fila -->
             <tbody id="tableBody"></tbody>
         </table>
-
+    
         <!-- Componente Modal para guardar un registro -->
         <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="modalTitle" aria-hidden="true">
@@ -106,7 +106,7 @@
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
                             <input type="hidden" id="idGenero" name="idGenero">
                             <div class="col-sm-12 col-md-6">
-                                <label for="nombreGenero" class="form-label">Nombre del Genero</label>
+                                <label for="nombreGenero" class="form-label">Nombre del Género</label>
                                 <input id="nombreGenero" type="text" name="nombreGenero" class="form-control" required>
                             </div>
                         </div>
