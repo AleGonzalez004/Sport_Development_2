@@ -66,24 +66,24 @@ const fillTable = async (form = null) => {
     // Se inicializa el contenido de la tabla.
     ROWS_FOUND.textContent = '';
     TABLE_BODY.innerHTML = '';
-    
+
     // Se verifica la acción a realizar.
     (form) ? action = 'searchRows' : action = 'readAll';
-    
+
     // Petición para obtener los registros disponibles.
     const DATA = await fetchData(CATEGORIA_API, action, form);
-    
+
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status === 200) {
         const { rows, total } = DATA.data;
         ROWS_FOUND.textContent = `${total} registros encontrados`;
-        
+
         // Se recorren los registros y se agregan a la tabla.
         rows.forEach(row => {
             const TR = document.createElement('tr');
-            
+
             // Aquí se agrega el código para generar las celdas de la tabla.
-            
+
             TABLE_BODY.appendChild(TR);
         });
     } else {

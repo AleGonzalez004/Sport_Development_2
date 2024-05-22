@@ -4,14 +4,14 @@ const GENEROS_API = '/Api/Services/generos.php';
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
 const TABLE_BODY = document.getElementById('tableBody'),
-      ROWS_FOUND = document.getElementById('rowsFound');
+    ROWS_FOUND = document.getElementById('rowsFound');
 // Constantes para establecer los elementos del componente Modal.
 const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
-      MODAL_TITLE = document.getElementById('modalTitle');
+    MODAL_TITLE = document.getElementById('modalTitle');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-      ID_GENERO = document.getElementById('idGenero'),
-      NOMBRE_GENERO = document.getElementById('nombreGenero');
+    ID_GENERO = document.getElementById('idGenero'),
+    NOMBRE_GENERO = document.getElementById('nombreGenero');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {

@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </form>
-    
+
             <!-- Modal para crear y editar deportes -->
             <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
                 aria-hidden="true">
@@ -62,13 +62,14 @@
                                 <input type="hidden" id="idDeporte">
                                 <div class="mb-3">
                                     <label for="sportName" class="form-label">Nombre del Deporte</label>
-                                    <input type="text" class="form-control" id="sportName" placeholder="Ingrese un deporte"
-                                        required>
+                                    <input type="text" class="form-control" id="sportName"
+                                        placeholder="Ingrese un deporte" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="imageFile" class="form-label">Seleccionar Imagen</label>
-                                    <input type="file" class="form-control" id="imageFile" accept="image/png, image/jpeg"
-                                        maxsize="100000000" onchange="validateAndPreviewImage(this)">
+                                    <input type="file" class="form-control" id="imageFile"
+                                        accept="image/png, image/jpeg" maxsize="100000000"
+                                        onchange="validateAndPreviewImage(this)">
                                 </div>
                                 <div class="mb-3">
                                     <img id="previewImage" class="img-fluid" alt="Vista previa de la imagen"
@@ -84,7 +85,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Tabla para mostrar los registros existentes -->
         <table class="table table-hover">
             <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
@@ -101,7 +102,7 @@
             <tbody id="tableBody"></tbody>
         </table>
     </main>
-    
+
 
     <div class="py-5"></div>
     <div class="py-5"></div>
